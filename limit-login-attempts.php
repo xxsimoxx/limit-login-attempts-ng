@@ -5,9 +5,11 @@
 	Author:       Simone Fioravanti
 	Author URI:   https://simonefioravanti.it
 	Text Domain:  limit-login-attempts
+	Domain Path:  /languages
 	Version:      0.0.1
 	Requires CP:  1.0
 	Requires PHP: 7.4
+
 
 	This plugin is a fork of Limit Login Attempts Copyright 2008 - 2012 Johan Eenfeldt
 	Copyright 2008 - 2012 Johan Eenfeldt
@@ -95,9 +97,7 @@ add_action('plugins_loaded', 'limit_login_setup', 99999);
 
 /* Get options and setup filters & actions */
 function limit_login_setup() {
-	load_plugin_textdomain('limit-login-attempts', false
-			       , dirname(plugin_basename(__FILE__)));
-
+	load_plugin_textdomain('limit-login-attempts', false, basename(__DIR__).'/languages');
 	limit_login_setup_options();
 
 	/* Filters and actions */
