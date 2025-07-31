@@ -148,8 +148,8 @@ function limit_login_get_address($type_name = '') {
 		$type = limit_login_option('client_type');
 	}
 
-	if (isset($_SERVER[$type]) && filter_var($_SERVER[$type], FILTER_VALIDATE_IP)) {
-		return $_SERVER[$type];
+	if (isset($_SERVER[$type]) && filter_var(wp_unslash($_SERVER[$type]), FILTER_VALIDATE_IP)) {
+		return sanitize_text_field(wp_unslash($_SERVER[$type]));
 	}
 
 	/*
@@ -158,7 +158,7 @@ function limit_login_get_address($type_name = '') {
 	 */
 	if ( empty($type_name) && $type == LIMIT_LOGIN_PROXY_ADDR
 		 && isset($_SERVER[LIMIT_LOGIN_DIRECT_ADDR])
-		 && filter_var($_SERVER[LIMIT_LOGIN_DIRECT_ADDR], FILTER_VALIDATE_IP)) {
+		 && filter_var(wp_unslash($_SERVER[LIMIT_LOGIN_DIRECT_ADDR]), FILTER_VALIDATE_IP)) {
 
 		/*
 		 * NOTE: Even though we fall back to direct address -- meaning you
@@ -169,9 +169,9 @@ function limit_login_get_address($type_name = '') {
 		 * regarding which IP should be banned.
 		 */
 
-		return $_SERVER[LIMIT_LOGIN_DIRECT_ADDR];
+		return sanitize_text_field(wp_unslash($_SERVER[LIMIT_LOGIN_DIRECT_ADDR]));
 	}
-	
+
 	return '';
 }
 
@@ -278,10 +278,10 @@ function limit_login_failed_cookie_hash($cookie_elements) {
 	 * cookie is attempted for a user.
 	 */
 
-	extract($cookie_elements, EXTR_OVERWRITE);
+	extract($cookie_elements, EXTR_OVERWRITE); // phpcs:ignore WordPress.PHP.DontExtract.extract_extract
 
 	// Check if cookie is for a valid user
-	$user = get_userdatabylogin($username);
+	$user = get_user_by('login', $username);
 	if (!$user) {
 		// "shouldn't happen" for this action
 		limit_login_failed($username);
@@ -393,7 +393,7 @@ function limit_login_failed($username) {
 
 	/* lockout? */
 	if($retries[$ip] % limit_login_option('allowed_retries') != 0) {
-		/* 
+		/*
 		 * Not lockout (yet!)
 		 * Do housecleaning (which also saves retry/valid values).
 		 */
@@ -408,7 +408,7 @@ function limit_login_failed($username) {
 	$retries_long = limit_login_option('allowed_retries')
 		* limit_login_option('allowed_lockouts');
 
-	/* 
+	/*
 	 * Note that retries and statistics are still counted and notifications
 	 * done as usual for whitelisted ips , but no lockout is done.
 	 */
@@ -529,7 +529,7 @@ function limit_login_notify_email($user) {
 		$when = sprintf(_n('%d minute', '%d minutes', $time, 'limit-login-attempts'), $time);
 	}
 
-	$blogname = is_limit_login_multisite() ? get_site_option('site_name') : get_option('blogname');	
+	$blogname = is_limit_login_multisite() ? get_site_option('site_name') : get_option('blogname');
 
 	if ($whitelisted) {
 		$subject = sprintf(__("[%s] Failed login attempts from whitelisted IP"
@@ -541,9 +541,10 @@ function limit_login_notify_email($user) {
 				   , $blogname);
 	}
 
-	$message = sprintf(__("%d failed login attempts (%d lockout(s)) from IP: %s"
-			      , 'limit-login-attempts') . "\r\n\r\n"
-			   , $count, $lockouts, $ip);
+	// Translators: 1: number of failed login attempts 2: seconds of lockout 3: IP
+	$message = sprintf(esc_html__('%1$d failed login attempts (%2$d lockout(s)) from IP: %3$s'
+			      , 'limit-login-attempts')
+			   , $count, $lockouts, $ip) . "\r\n\r\n";
 	if ($user != '') {
 		$message .= sprintf(__("Last user attempted: %s", 'limit-login-attempts')
 				    . "\r\n\r\n" , $user);
@@ -556,7 +557,7 @@ function limit_login_notify_email($user) {
 
 	$admin_email = is_limit_login_multisite() ? get_site_option('admin_email') : get_option('admin_email');
 
-	@wp_mail($admin_email, $subject, $message);
+	wp_mail($admin_email, $subject, $message);
 }
 
 
@@ -570,7 +571,7 @@ function limit_login_notify_log($user) {
 
 	/* can be written much simpler, if you do not mind php warnings */
 	if (isset($log[$ip])) {
-		if (isset($log[$ip][$user])) {	
+		if (isset($log[$ip][$user])) {
 			$log[$ip][$user]++;
 		} else {
 			$log[$ip][$user] = 1;
@@ -677,12 +678,12 @@ function limit_login_get_message() {
 
 /* Should we show errors and messages on this page? */
 function should_limit_login_show_msg() {
-	if (isset($_GET['key'])) {
+	if (isset($_GET['key'])) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		/* reset password */
 		return false;
 	}
 
-	$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
+	$action = sanitize_key(wp_unslash($_REQUEST['action'] ?? '')); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
 	return ( $action != 'lostpassword' && $action != 'retrievepassword'
 			 && $action != 'resetpass' && $action != 'rp'
@@ -759,10 +760,9 @@ function limit_login_add_error_message() {
 
 	if ($msg != '') {
 		$limit_login_my_error_shown = true;
-		$error .= $msg;
+		$error .= $msg; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 	}
 
-	return;
 }
 
 
@@ -894,7 +894,7 @@ function limit_login_show_log($log) {
 		return;
 	}
 
-	echo('<tr><th scope="col">' . _x("IP", "Internet address", 'limit-login-attempts') . '</th><th scope="col">' . __('Tried to log in as', 'limit-login-attempts') . '</th></tr>');
+	echo('<tr><th scope="col">' . esc_html(_x("IP", "Internet address", 'limit-login-attempts')) . '</th><th scope="col">' . esc_html__('Tried to log in as', 'limit-login-attempts') . '</th></tr>');
 	foreach ($log as $ip => $arr) {
 		echo('<tr><td class="limit-login-ip">' . esc_html($ip) . '</td><td class="limit-login-max">');
 		$first = true;
@@ -912,7 +912,7 @@ function limit_login_show_log($log) {
 }
 
 /* Actual admin page */
-function limit_login_option_page()	{	
+function limit_login_option_page()	{
 	limit_login_cleanup();
 
 	if (!current_user_can('manage_options')) {
@@ -920,31 +920,31 @@ function limit_login_option_page()	{
 	}
 
 	/* Make sure post was from this page */
-	if (count($_POST) > 0) {
+	if (count($_POST) > 0) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
 		check_admin_referer('limit-login-attempts-options');
 	}
-		
+
 	/* Should we clear log? */
 	if (isset($_POST['clear_log'])) {
 		delete_option('limit_login_logged');
 		echo '<div id="message" class="updated fade"><p>'
-			. __('Cleared IP log', 'limit-login-attempts')
+			. esc_html__('Cleared IP log', 'limit-login-attempts')
 			. '</p></div>';
 	}
-		
+
 	/* Should we reset counter? */
 	if (isset($_POST['reset_total'])) {
 		update_option('limit_login_lockouts_total', 0);
 		echo '<div id="message" class="updated fade"><p>'
-			. __('Reset lockout count', 'limit-login-attempts')
+			. esc_html__('Reset lockout count', 'limit-login-attempts')
 			. '</p></div>';
 	}
-		
+
 	/* Should we restore current lockouts? */
 	if (isset($_POST['reset_current'])) {
 		update_option('limit_login_lockouts', array());
 		echo '<div id="message" class="updated fade"><p>'
-			. __('Cleared current lockouts', 'limit-login-attempts')
+			. esc_html__('Cleared current lockouts', 'limit-login-attempts')
 			. '</p></div>';
 	}
 
@@ -952,14 +952,14 @@ function limit_login_option_page()	{
 	if (isset($_POST['update_options'])) {
 		global $limit_login_options;
 
-		$limit_login_options['client_type'] = $_POST['client_type'];
-		$limit_login_options['allowed_retries'] = $_POST['allowed_retries'];
-		$limit_login_options['lockout_duration'] = $_POST['lockout_duration'] * 60;
-		$limit_login_options['valid_duration'] = $_POST['valid_duration'] * 3600;
-		$limit_login_options['allowed_lockouts'] = $_POST['allowed_lockouts'];
-		$limit_login_options['long_duration'] = $_POST['long_duration'] * 3600;
-		$limit_login_options['notify_email_after'] = $_POST['email_after'];
-		$limit_login_options['cookies'] = (isset($_POST['cookies']) && $_POST['cookies'] == '1');
+		$limit_login_options['client_type']        = sanitize_text_field(wp_unslash($_POST['client_type']??''));
+		$limit_login_options['allowed_retries']    = sanitize_text_field(wp_unslash($_POST['allowed_retries']??0));
+		$limit_login_options['lockout_duration']   = sanitize_text_field(wp_unslash(($_POST['lockout_duration']??0))) * 60;
+		$limit_login_options['valid_duration']     = sanitize_text_field(wp_unslash(($_POST['valid_duration']??0))) * 3600;
+		$limit_login_options['allowed_lockouts']   = sanitize_text_field(wp_unslash($_POST['allowed_lockouts']??0));
+		$limit_login_options['long_duration']      = sanitize_text_field(wp_unslash(($_POST['long_duration']??0))) * 3600;
+		$limit_login_options['notify_email_after'] = sanitize_text_field(wp_unslash($_POST['email_after']??0));
+		$limit_login_options['cookies']            = (isset($_POST['cookies']) && $_POST['cookies'] == '1');
 
 		$v = array();
 		if (isset($_POST['lockout_notify_log'])) {
@@ -973,7 +973,7 @@ function limit_login_option_page()	{
 		limit_login_sanitize_variables();
 		limit_login_update_options();
 		echo '<div id="message" class="updated fade"><p>'
-			. __('Options changed', 'limit-login-attempts')
+			. esc_html__('Options changed', 'limit-login-attempts')
 			. '</p></div>';
 	}
 
@@ -991,9 +991,10 @@ function limit_login_option_page()	{
 	$client_type_guess = limit_login_guess_proxy();
 
 	if ($client_type_guess == LIMIT_LOGIN_DIRECT_ADDR) {
-		$client_type_message = sprintf(__('It appears the site is reached directly (from your IP: %s)','limit-login-attempts'), limit_login_get_address(LIMIT_LOGIN_DIRECT_ADDR));
+		$client_type_message = sprintf(esc_html__('It appears the site is reached directly (from your IP: %s)','limit-login-attempts'), limit_login_get_address(LIMIT_LOGIN_DIRECT_ADDR));
 	} else {
-		$client_type_message = sprintf(__('It appears the site is reached through a proxy server (proxy IP: %s, your IP: %s)','limit-login-attempts'), limit_login_get_address(LIMIT_LOGIN_DIRECT_ADDR), limit_login_get_address(LIMIT_LOGIN_PROXY_ADDR));
+		// Translators: 1: proxy IP 2: your IP
+		$client_type_message = sprintf(__('It appears the site is reached through a proxy server (proxy IP: %1$s, your IP: %2$s)','limit-login-attempts'), limit_login_get_address(LIMIT_LOGIN_DIRECT_ADDR), limit_login_get_address(LIMIT_LOGIN_PROXY_ADDR));
 	}
 	$client_type_message .= '<br />';
 
@@ -1004,82 +1005,82 @@ function limit_login_option_page()	{
 		$client_type_warning = '<br /><br />' . sprintf(__('<strong>Current setting appears to be invalid</strong>. Please make sure it is correct. Further information can be found <a href="%s" title="FAQ">here</a>','limit-login-attempts'), $faq);
 	}
 
-	$v = explode(',', limit_login_option('lockout_notify')); 
+	$v = explode(',', limit_login_option('lockout_notify'));
 	$log_checked = in_array('log', $v) ? ' checked ' : '';
 	$email_checked = in_array('email', $v) ? ' checked ' : '';
 	?>
 	<div class="wrap">
-	  <h2><?php echo __('Limit Login Attempts Settings','limit-login-attempts'); ?></h2>
-	  <h3><?php echo __('Statistics','limit-login-attempts'); ?></h3>
+	  <h2><?php esc_html_e('Limit Login Attempts Settings','limit-login-attempts'); ?></h2>
+	  <h3><?php esc_html_e('Statistics','limit-login-attempts'); ?></h3>
 	  <form action="options-general.php?page=limit-login-attempts" method="post">
 		<?php wp_nonce_field('limit-login-attempts-options'); ?>
 	    <table class="form-table">
 		  <tr>
-			<th scope="row" valign="top"><?php echo __('Total lockouts','limit-login-attempts'); ?></th>
+			<th scope="row" valign="top"><?php esc_html_e('Total lockouts','limit-login-attempts'); ?></th>
 			<td>
 			  <?php if ($lockouts_total > 0) { ?>
-			  <input name="reset_total" value="<?php echo __('Reset Counter','limit-login-attempts'); ?>" type="submit" />
-			  <?php echo sprintf(_n('%d lockout since last reset', '%d lockouts since last reset', $lockouts_total, 'limit-login-attempts'), $lockouts_total); ?>
-			  <?php } else { echo __('No lockouts yet','limit-login-attempts'); } ?>
+			  <input name="reset_total" value="<?php esc_html_e('Reset Counter','limit-login-attempts'); ?>" type="submit" />
+			  <?php echo sprintf(_n('%d lockout since last reset', '%d lockouts since last reset', (int) $lockouts_total, 'limit-login-attempts'), (int) $lockouts_total); ?>
+			  <?php } else { esc_html_e('No lockouts yet','limit-login-attempts'); } ?>
 			</td>
 		  </tr>
 		  <?php if ($lockouts_now > 0) { ?>
 		  <tr>
-			<th scope="row" valign="top"><?php echo __('Active lockouts','limit-login-attempts'); ?></th>
+			<th scope="row" valign="top"><?php esc_html_e('Active lockouts','limit-login-attempts'); ?></th>
 			<td>
-			  <input name="reset_current" value="<?php echo __('Restore Lockouts','limit-login-attempts'); ?>" type="submit" />
-			  <?php echo sprintf(__('%d IP is currently blocked from trying to log in','limit-login-attempts'), $lockouts_now); ?> 
+			  <input name="reset_current" value="<?php esc_html_e('Restore Lockouts','limit-login-attempts'); ?>" type="submit" />
+			  <?php echo sprintf(esc_html__('%d IP is currently blocked from trying to log in','limit-login-attempts'), esc_html($lockouts_now)); ?>
 			</td>
 		  </tr>
 		  <?php } ?>
 		</table>
 	  </form>
-	  <h3><?php echo __('Options','limit-login-attempts'); ?></h3>
+	  <h3><?php esc_html_e('Options','limit-login-attempts'); ?></h3>
 	  <form action="options-general.php?page=limit-login-attempts" method="post">
 		<?php wp_nonce_field('limit-login-attempts-options'); ?>
 	    <table class="form-table">
 		  <tr>
-			<th scope="row" valign="top"><?php echo __('Lockout','limit-login-attempts'); ?></th>
+			<th scope="row" valign="top"><?php esc_html_e('Lockout','limit-login-attempts'); ?></th>
 			<td>
-			  <input type="text" size="3" maxlength="4" value="<?php echo(limit_login_option('allowed_retries')); ?>" name="allowed_retries" /> <?php echo __('allowed retries','limit-login-attempts'); ?> <br />
-			  <input type="text" size="3" maxlength="4" value="<?php echo(limit_login_option('lockout_duration')/60); ?>" name="lockout_duration" /> <?php echo __('minutes lockout','limit-login-attempts'); ?> <br />
-			  <input type="text" size="3" maxlength="4" value="<?php echo(limit_login_option('allowed_lockouts')); ?>" name="allowed_lockouts" /> <?php echo __('lockouts increase lockout time to','limit-login-attempts'); ?> <input type="text" size="3" maxlength="4" value="<?php echo(limit_login_option('long_duration')/3600); ?>" name="long_duration" /> <?php echo __('hours','limit-login-attempts'); ?> <br />
-			  <input type="text" size="3" maxlength="4" value="<?php echo(limit_login_option('valid_duration')/3600); ?>" name="valid_duration" /> <?php echo __('hours until retries are reset','limit-login-attempts'); ?>
+			  <input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('allowed_retries')); ?>" name="allowed_retries" /> <?php esc_html_e('allowed retries','limit-login-attempts'); ?> <br />
+			  <input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('lockout_duration')/60); ?>" name="lockout_duration" /> <?php esc_html_e('minutes lockout','limit-login-attempts'); ?> <br />
+			  <input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('allowed_lockouts')); ?>" name="allowed_lockouts" /> <?php esc_html_e('lockouts increase lockout time to','limit-login-attempts'); ?> <input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('long_duration')/3600); ?>" name="long_duration" /> <?php esc_html_e('hours','limit-login-attempts'); ?> <br />
+			  <input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('valid_duration')/3600); ?>" name="valid_duration" /> <?php esc_html_e('hours until retries are reset','limit-login-attempts'); ?>
 			</td>
 		  </tr>
 		  <tr>
-			<th scope="row" valign="top"><?php echo __('Site connection','limit-login-attempts'); ?></th>
+			<th scope="row" valign="top"><?php esc_html_e('Site connection','limit-login-attempts'); ?></th>
 			<td>
-			  <?php echo $client_type_message; ?>
+			  <?php echo wp_kses_post($client_type_message); ?>
 			  <label>
-				<input type="radio" name="client_type" 
-					   <?php echo $client_type_direct; ?> value="<?php echo LIMIT_LOGIN_DIRECT_ADDR; ?>" /> 
-					   <?php echo __('Direct connection','limit-login-attempts'); ?> 
+				<input type="radio" name="client_type"
+					   <?php echo esc_html($client_type_direct); ?> value="<?php echo esc_attr(LIMIT_LOGIN_DIRECT_ADDR); ?>" />
+					   <?php esc_html_e('Direct connection','limit-login-attempts'); ?>
 			  </label>
 			  <label>
-				<input type="radio" name="client_type" 
-					   <?php echo $client_type_proxy; ?> value="<?php echo LIMIT_LOGIN_PROXY_ADDR; ?>" /> 
-				  <?php echo __('From behind a reversy proxy','limit-login-attempts'); ?>
+				<input type="radio" name="client_type"
+					   <?php echo esc_attr($client_type_proxy); ?> value="<?php echo esc_attr(LIMIT_LOGIN_PROXY_ADDR); ?>" />
+				  <?php esc_html_e('From behind a reversy proxy','limit-login-attempts'); ?>
 			  </label>
-			  <?php echo $client_type_warning; ?>
+			  <?php echo wp_kses_post($client_type_warning); ?>
 			</td>
 		  </tr>
 		  <tr>
-			<th scope="row" valign="top"><?php echo __('Handle cookie login','limit-login-attempts'); ?></th>
+			<th scope="row" valign="top"><?php esc_html_e('Handle cookie login','limit-login-attempts'); ?></th>
 			<td>
-			  <label><input type="radio" name="cookies" <?php echo $cookies_yes; ?> value="1" /> <?php echo __('Yes','limit-login-attempts'); ?></label> <label><input type="radio" name="cookies" <?php echo $cookies_no; ?> value="0" /> <?php echo __('No','limit-login-attempts'); ?></label>
+			  <label><input type="radio" name="cookies" <?php echo esc_attr($cookies_yes); ?> value="1" /> <?php esc_html_e('Yes','limit-login-attempts'); ?></label> <label><input type="radio" name="cookies" <?php echo esc_attr($cookies_no); ?> value="0" /> <?php esc_html_e('No','limit-login-attempts'); ?></label>
 			</td>
 		  </tr>
 		  <tr>
-			<th scope="row" valign="top"><?php echo __('Notify on lockout','limit-login-attempts'); ?></th>
+			<th scope="row" valign="top"><?php esc_html_e('Notify on lockout','limit-login-attempts'); ?></th>
 			<td>
-			  <input type="checkbox" name="lockout_notify_log" <?php echo $log_checked; ?> value="log" /> <?php echo __('Log IP','limit-login-attempts'); ?><br />
-			  <input type="checkbox" name="lockout_notify_email" <?php echo $email_checked; ?> value="email" /> <?php echo __('Email to admin after','limit-login-attempts'); ?> <input type="text" size="3" maxlength="4" value="<?php echo(limit_login_option('notify_email_after')); ?>" name="email_after" /> <?php echo __('lockouts','limit-login-attempts'); ?>
+			  <input type="checkbox" name="lockout_notify_log" <?php echo esc_attr($log_checked); ?> value="log" /> <?php esc_html_e('Log IP','limit-login-attempts'); ?><br />
+			  <input type="checkbox" name="lockout_notify_email" <?php echo esc_attr($email_checked); ?> value="email" /> <?php esc_html_e('Email to admin after','limit-login-attempts'); ?> <input type="text" size="3" maxlength="4" value="<?php echo esc_attr(limit_login_option('notify_email_after')); ?>" name="email_after" /> <?php esc_html_e('lockouts','limit-login-attempts'); ?>
 			</td>
 		  </tr>
 		</table>
 		<p class="submit">
-		  <input name="update_options" value="<?php echo __('Change Options','limit-login-attempts'); ?>" type="submit" />
+		  <input name="update_options" value="<?php esc_html_e('Change Options','limit-login-attempts'); ?>" type="submit" />
 		</p>
 	  </form>
 	  <?php
@@ -1087,12 +1088,12 @@ function limit_login_option_page()	{
 
 		if (is_array($log) && count($log) > 0) {
 	  ?>
-	  <h3><?php echo __('Lockout log','limit-login-attempts'); ?></h3>
+	  <h3><?php esc_html_e('Lockout log','limit-login-attempts'); ?></h3>
 	  <form action="options-general.php?page=limit-login-attempts" method="post">
 		<?php wp_nonce_field('limit-login-attempts-options'); ?>
 		<input type="hidden" value="true" name="clear_log" />
 		<p class="submit">
-		  <input name="submit" value="<?php echo __('Clear Log','limit-login-attempts'); ?>" type="submit" />
+		  <input name="submit" value="<?php esc_html_e('Clear Log','limit-login-attempts'); ?>" type="submit" />
 		</p>
 	  </form>
 	  <style type="text/css" media="screen">
@@ -1119,7 +1120,7 @@ function limit_login_option_page()	{
 		} /* if showing $log */
 	  ?>
 
-	</div>	
-	<?php		
-}	
+	</div>
+	<?php
+}
 ?>
