@@ -1,32 +1,33 @@
 <?php
 /*
-  Plugin Name: Limit Login Attempts
-  Plugin URI: http://devel.kostdoktorn.se/limit-login-attempts
-  Description: Limit rate of login attempts, including by way of cookies, for each IP.
-  Author: Johan Eenfeldt
-  Author URI: http://devel.kostdoktorn.se
-  Text Domain: limit-login-attempts
-  Version: 1.7.2
+	Plugin Name:  Limit Login Attempts
+	Description:  Limit rate of login attempts, including by way of cookies, for each IP.
+	Author:       Simone Fioravanti
+	Author URI:   https://simonefioravanti.it
+	Text Domain:  limit-login-attempts
+	Version:      0.0.1
+	Requires CP:  1.0
+	Requires PHP: 7.4
 
-  Copyright 2008 - 2012 Johan Eenfeldt
+	This plugin is a fork of Limit Login Attempts Copyright 2008 - 2012 Johan Eenfeldt
+	Copyright 2008 - 2012 Johan Eenfeldt
+	Thanks to Michael Skerwiderski for reverse proxy handling suggestions.
 
-  Thanks to Michael Skerwiderski for reverse proxy handling suggestions.
+	Licenced under the GNU GPL:
 
-  Licenced under the GNU GPL:
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation; either version 2 of the License, or
+	(at your option) any later version.
 
-  This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation; either version 2 of the License, or
-  (at your option) any later version.
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
 
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
-
-  You should have received a copy of the GNU General Public License
-  along with this program; if not, write to the Free Software
-  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+	You should have received a copy of the GNU General Public License
+	along with this program; if not, write to the Free Software
+	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
 /*
@@ -1000,7 +1001,7 @@ function limit_login_option_page()	{
 
 	$client_type_warning = '';
 	if ($client_type != $client_type_guess) {
-		$faq = 'http://wordpress.org/extend/plugins/limit-login-attempts/faq/';
+		$faq = 'https://github.com/xxsimoxx/limit-login-attempts/README.md';
 
 		$client_type_warning = '<br /><br />' . sprintf(__('<strong>Current setting appears to be invalid</strong>. Please make sure it is correct. Further information can be found <a href="%s" title="FAQ">here</a>','limit-login-attempts'), $faq);
 	}
@@ -1123,4 +1124,5 @@ function limit_login_option_page()	{
 	</div>
 	<?php
 }
+
 ?>
