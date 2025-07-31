@@ -870,22 +870,7 @@ function limit_login_sanitize_variables() {
 
 /* Add admin options page */
 function limit_login_admin_menu() {
-	global $wp_version;
-
-	// Modern WP?
-	if (version_compare($wp_version, '3.0', '>=')) {
-	    add_options_page('Limit Login Attempts', 'Limit Login Attempts', 'manage_options', 'limit-login-attempts', 'limit_login_option_page');
-	    return;
-	}
-
-	// Older WPMU?
-	if (function_exists("get_current_site")) {
-	    add_submenu_page('wpmu-admin.php', 'Limit Login Attempts', 'Limit Login Attempts', 9, 'limit-login-attempts', 'limit_login_option_page');
-	    return;
-	}
-
-	// Older WP
-	add_options_page('Limit Login Attempts', 'Limit Login Attempts', 9, 'limit-login-attempts', 'limit_login_option_page');
+	add_options_page('Limit Login Attempts', 'Limit Login Attempts', 'manage_options', 'limit-login-attempts', 'limit_login_option_page');
 }
 
 
@@ -1001,7 +986,7 @@ function limit_login_option_page()	{
 
 	$client_type_warning = '';
 	if ($client_type != $client_type_guess) {
-		$faq = 'https://github.com/xxsimoxx/limit-login-attempts/README.md';
+		$faq = 'https://github.com/xxsimoxx/limit-login-attempts/blob/main/README.md';
 
 		$client_type_warning = '<br /><br />' . sprintf(__('<strong>Current setting appears to be invalid</strong>. Please make sure it is correct. Further information can be found <a href="%s" title="FAQ">here</a>','limit-login-attempts'), $faq);
 	}
