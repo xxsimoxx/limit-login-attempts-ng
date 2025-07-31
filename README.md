@@ -6,7 +6,7 @@ Limit rate of login attempts, including by way of cookies, for each IP. Fully cu
 
 Limit the number of login attempts possible both through normal login as well as using auth cookies.
 
-By default WordPress allows unlimited login attempts either through the login page or by sending special cookies. This allows passwords (or hashes) to be brute-force cracked with relative ease.
+By default ClassicPress allows unlimited login attempts either through the login page or by sending special cookies. This allows passwords (or hashes) to be brute-force cracked with relative ease.
 
 Limit Login Attempts blocks an Internet address from making further attempts after a specified limit on retries is reached, making a brute-force attack difficult or impossible.
 
@@ -26,8 +26,14 @@ Translations: Bulgarian, Brazilian Portuguese, Catalan, Chinese (Traditional), C
 ## Installation
 
 1. Download and extract plugin files to a wp-content/plugin directory.
-2. Activate the plugin through the WordPress admin interface.
+2. Activate the plugin through the ClassicPress admin interface.
 3. Customize the settings on the options page, if desired. If your server is located behind a reverse proxy make sure to change this setting.
+
+## Requirement
+
+This plugin is intended for use with [ClassicPress](https://www.classicpress.net/).
+
+[![ClassicPress Directory Coding Standard checks.](https://github.com/xxsimoxx/limit-login-attempts/actions/workflows/cpcs.yml/badge.svg)](https://github.com/xxsimoxx/limit-login-attempts/actions/workflows/cpcs.yml)
 
 ## Frequently Asked Questions
 
@@ -68,4 +74,4 @@ Either wait, or:
 
 If you have ftp / ssh access to the site rename the file `wp-content/plugins/limit-login-attempts/limit-login-attempts.php` to deactivate the plugin.
 
-If you have access to the database (for example through phpMyAdmin) you can clear the `limit_login_lockouts` option in the wordpress options table. In a default setup this would work: `UPDATE wp_options SET option_value = '' WHERE option_name = 'limit_login_lockouts'`
+If you have access to the database (for example through phpMyAdmin) you can clear the `limit_login_lockouts` option in the wordpress options table. In a default setup this would work: `UPDATE wp_options SET option_value = '' WHERE option_name = 'limit_login_lockouts'`.

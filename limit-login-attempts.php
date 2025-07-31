@@ -32,6 +32,27 @@
 	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
+
+
+if (!function_exists('classicpress_version')) {
+	add_action('admin_init', 'limit_login_deactivate_plugin_now');
+	add_action('admin_notices', 'limit_login_error_is_wp');
+	unset( $_GET['activate'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+	return;
+}
+
+function limit_login_deactivate_plugin_now() {
+	if (is_plugin_active('limit-login-attempts/limit-login-attempts.php')) {
+		deactivate_plugins('limit-login-attempts/limit-login-attempts.php');
+	}
+}
+
+function limit_login_error_is_wp() {
+	$class   = 'notice notice-error';
+	$message = esc_html__( 'Limit Login Attempts is a plugin meant to only work on ClassicPress sites.', 'limit-login-attempts');
+	printf('<div class="%1$s"><p>%2$s</p></div>', esc_attr($class), esc_html($message));
+}
+
 /*
  * Constants
  */
