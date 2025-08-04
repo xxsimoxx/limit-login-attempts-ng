@@ -6,7 +6,7 @@
 	Author URI:   https://simonefioravanti.it
 	Text Domain:  limit-login-attempts
 	Domain Path:  /languages
-	Version:      0.0.1
+	Version:      0.0.2
 	Requires CP:  1.0
 	Requires PHP: 7.4
 
@@ -734,10 +734,10 @@ function limit_login_fixup_error_messages($content) {
 	 * 'Invalid password' as that is an information leak regarding user
 	 * account names (prior to WP 2.9?).
 	 *
-	 * Also, if more than one error message, put an extra <br /> tag between
+	 * Also, if more than one error message, put an extra <br> tag between
 	 * them.
 	 */
-	$msgs = explode("<br />\n", $content);
+	$msgs = explode("<br>\n", $content);
 
 	if (strlen(end($msgs)) == 0) {
 		/* remove last entry empty string */
@@ -749,9 +749,9 @@ function limit_login_fixup_error_messages($content) {
 
 	if ($limit_login_nonempty_credentials && $count > $my_warn_count) {
 		/* Replace error message, including ours if necessary */
-		$content = __('<strong>ERROR</strong>: Incorrect username or password.', 'limit-login-attempts') . "<br />\n";
+		$content = __('<strong>ERROR</strong>: Incorrect username or password.', 'limit-login-attempts') . "<br>\n";
 		if ($limit_login_my_error_shown) {
-			$content .= "<br />\n" . limit_login_get_message() . "<br />\n";
+			$content .= "<br>\n" . limit_login_get_message() . "<br>\n";
 		}
 		return $content;
 	} elseif ($count <= 1) {
@@ -760,9 +760,9 @@ function limit_login_fixup_error_messages($content) {
 
 	$new = '';
 	while ($count-- > 0) {
-		$new .= array_shift($msgs) . "<br />\n";
+		$new .= array_shift($msgs) . "<br>\n";
 		if ($count > 0) {
-			$new .= "<br />\n";
+			$new .= "<br>\n";
 		}
 	}
 
@@ -1003,132 +1003,165 @@ function limit_login_option_page()	{
 		// Translators: 1: proxy IP 2: your IP
 		$client_type_message = sprintf(__('It appears the site is reached through a proxy server (proxy IP: %1$s, your IP: %2$s)','limit-login-attempts'), limit_login_get_address(LIMIT_LOGIN_DIRECT_ADDR), limit_login_get_address(LIMIT_LOGIN_PROXY_ADDR));
 	}
-	$client_type_message .= '<br />';
+	$client_type_message .= '<br>';
 
 	$client_type_warning = '';
 	if ($client_type != $client_type_guess) {
 		$faq = 'https://github.com/xxsimoxx/limit-login-attempts/blob/main/README.md';
 
-		$client_type_warning = '<br /><br />' . sprintf(__('<strong>Current setting appears to be invalid</strong>. Please make sure it is correct. Further information can be found <a href="%s" title="FAQ">here</a>','limit-login-attempts'), $faq);
+		$client_type_warning = '<br><br>' . sprintf(__('<strong>Current setting appears to be invalid</strong>. Please make sure it is correct. Further information can be found <a href="%s" title="FAQ">here</a>','limit-login-attempts'), $faq);
 	}
 
 	$v = explode(',', limit_login_option('lockout_notify'));
 	$log_checked = in_array('log', $v) ? ' checked ' : '';
 	$email_checked = in_array('email', $v) ? ' checked ' : '';
 	?>
+
 	<div class="wrap">
-	  <h2><?php esc_html_e('Limit Login Attempts Settings','limit-login-attempts'); ?></h2>
-	  <h3><?php esc_html_e('Statistics','limit-login-attempts'); ?></h3>
-	  <form action="options-general.php?page=limit-login-attempts" method="post">
-		<?php wp_nonce_field('limit-login-attempts-options'); ?>
-	    <table class="form-table">
-		  <tr>
-			<th scope="row" valign="top"><?php esc_html_e('Total lockouts','limit-login-attempts'); ?></th>
-			<td>
-			  <?php if ($lockouts_total > 0) { ?>
-			  <input name="reset_total" value="<?php esc_html_e('Reset Counter','limit-login-attempts'); ?>" type="submit" />
-			  <?php echo sprintf(_n('%d lockout since last reset', '%d lockouts since last reset', (int) $lockouts_total, 'limit-login-attempts'), (int) $lockouts_total); ?>
-			  <?php } else { esc_html_e('No lockouts yet','limit-login-attempts'); } ?>
-			</td>
-		  </tr>
-		  <?php if ($lockouts_now > 0) { ?>
-		  <tr>
-			<th scope="row" valign="top"><?php esc_html_e('Active lockouts','limit-login-attempts'); ?></th>
-			<td>
-			  <input name="reset_current" value="<?php esc_html_e('Restore Lockouts','limit-login-attempts'); ?>" type="submit" />
-			  <?php echo sprintf(esc_html__('%d IP is currently blocked from trying to log in','limit-login-attempts'), esc_html($lockouts_now)); ?>
-			</td>
-		  </tr>
-		  <?php } ?>
-		</table>
-	  </form>
-	  <h3><?php esc_html_e('Options','limit-login-attempts'); ?></h3>
-	  <form action="options-general.php?page=limit-login-attempts" method="post">
-		<?php wp_nonce_field('limit-login-attempts-options'); ?>
-	    <table class="form-table">
-		  <tr>
-			<th scope="row" valign="top"><?php esc_html_e('Lockout','limit-login-attempts'); ?></th>
-			<td>
-			  <input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('allowed_retries')); ?>" name="allowed_retries" /> <?php esc_html_e('allowed retries','limit-login-attempts'); ?> <br />
-			  <input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('lockout_duration')/60); ?>" name="lockout_duration" /> <?php esc_html_e('minutes lockout','limit-login-attempts'); ?> <br />
-			  <input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('allowed_lockouts')); ?>" name="allowed_lockouts" /> <?php esc_html_e('lockouts increase lockout time to','limit-login-attempts'); ?> <input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('long_duration')/3600); ?>" name="long_duration" /> <?php esc_html_e('hours','limit-login-attempts'); ?> <br />
-			  <input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('valid_duration')/3600); ?>" name="valid_duration" /> <?php esc_html_e('hours until retries are reset','limit-login-attempts'); ?>
-			</td>
-		  </tr>
-		  <tr>
-			<th scope="row" valign="top"><?php esc_html_e('Site connection','limit-login-attempts'); ?></th>
-			<td>
-			  <?php echo wp_kses_post($client_type_message); ?>
-			  <label>
-				<input type="radio" name="client_type"
-					   <?php echo esc_html($client_type_direct); ?> value="<?php echo esc_attr(LIMIT_LOGIN_DIRECT_ADDR); ?>" />
-					   <?php esc_html_e('Direct connection','limit-login-attempts'); ?>
-			  </label>
-			  <label>
-				<input type="radio" name="client_type"
-					   <?php echo esc_attr($client_type_proxy); ?> value="<?php echo esc_attr(LIMIT_LOGIN_PROXY_ADDR); ?>" />
-				  <?php esc_html_e('From behind a reversy proxy','limit-login-attempts'); ?>
-			  </label>
-			  <?php echo wp_kses_post($client_type_warning); ?>
-			</td>
-		  </tr>
-		  <tr>
-			<th scope="row" valign="top"><?php esc_html_e('Handle cookie login','limit-login-attempts'); ?></th>
-			<td>
-			  <label><input type="radio" name="cookies" <?php echo esc_attr($cookies_yes); ?> value="1" /> <?php esc_html_e('Yes','limit-login-attempts'); ?></label> <label><input type="radio" name="cookies" <?php echo esc_attr($cookies_no); ?> value="0" /> <?php esc_html_e('No','limit-login-attempts'); ?></label>
-			</td>
-		  </tr>
-		  <tr>
-			<th scope="row" valign="top"><?php esc_html_e('Notify on lockout','limit-login-attempts'); ?></th>
-			<td>
-			  <input type="checkbox" name="lockout_notify_log" <?php echo esc_attr($log_checked); ?> value="log" /> <?php esc_html_e('Log IP','limit-login-attempts'); ?><br />
-			  <input type="checkbox" name="lockout_notify_email" <?php echo esc_attr($email_checked); ?> value="email" /> <?php esc_html_e('Email to admin after','limit-login-attempts'); ?> <input type="text" size="3" maxlength="4" value="<?php echo esc_attr(limit_login_option('notify_email_after')); ?>" name="email_after" /> <?php esc_html_e('lockouts','limit-login-attempts'); ?>
-			</td>
-		  </tr>
-		</table>
-		<p class="submit">
-		  <input name="update_options" value="<?php esc_html_e('Change Options','limit-login-attempts'); ?>" type="submit" />
-		</p>
-	  </form>
-	  <?php
+		<h2><?php esc_html_e('Limit Login Attempts Settings','limit-login-attempts'); ?></h2>
+		<h3><?php esc_html_e('Statistics','limit-login-attempts'); ?></h3>
+		<form action="options-general.php?page=limit-login-attempts" method="post">
+
+			<?php wp_nonce_field('limit-login-attempts-options'); ?>
+
+			<table class="form-table">
+				<tr>
+					<th scope="row" valign="top"><?php esc_html_e('Total lockouts','limit-login-attempts'); ?></th>
+					<td>
+						<?php if ($lockouts_total > 0) {
+							?>
+
+							<input name="reset_total" value="<?php esc_html_e('Reset Counter','limit-login-attempts'); ?>" type="submit">
+							<?php echo sprintf(_n('%d lockout since last reset', '%d lockouts since last reset', (int) $lockouts_total, 'limit-login-attempts'), (int) $lockouts_total); ?>
+
+							<?php
+						} else {
+							esc_html_e('No lockouts yet','limit-login-attempts'); }
+						?>
+
+					</td>
+				</tr>
+
+			<?php if ($lockouts_now > 0) {
+				?>
+
+				<tr>
+					<th scope="row" valign="top"><?php esc_html_e('Active lockouts','limit-login-attempts'); ?></th>
+					<td>
+						<input name="reset_current" value="<?php esc_html_e('Restore Lockouts','limit-login-attempts'); ?>" type="submit">
+						<?php echo sprintf(esc_html__('%d IP is currently blocked from trying to log in','limit-login-attempts'), esc_html($lockouts_now)); ?>
+					</td>
+				</tr>
+
+				<?php
+			}
+			?>
+
+			</table>
+		</form>
+
+		<h3><?php esc_html_e('Options','limit-login-attempts'); ?></h3>
+		<form action="options-general.php?page=limit-login-attempts" method="post">
+
+			<?php wp_nonce_field('limit-login-attempts-options'); ?>
+
+			<table class="form-table">
+				<tr>
+					<th scope="row" valign="top"><?php esc_html_e('Lockout','limit-login-attempts'); ?></th>
+					<td>
+						<input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('allowed_retries')); ?>" name="allowed_retries"> <?php esc_html_e('allowed retries','limit-login-attempts'); ?> <br>
+						<input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('lockout_duration')/60); ?>" name="lockout_duration"> <?php esc_html_e('minutes lockout','limit-login-attempts'); ?> <br>
+						<input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('allowed_lockouts')); ?>" name="allowed_lockouts"> <?php esc_html_e('lockouts increase lockout time to','limit-login-attempts'); ?> <input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('long_duration')/3600); ?>" name="long_duration"> <?php esc_html_e('hours','limit-login-attempts'); ?> <br>
+						<input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('valid_duration')/3600); ?>" name="valid_duration"> <?php esc_html_e('hours until retries are reset','limit-login-attempts'); ?>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row" valign="top"><?php esc_html_e('Site connection','limit-login-attempts'); ?></th>
+					<td>
+						<?php echo wp_kses_post($client_type_message); ?>
+						<input id="direct" type="radio" name="client_type" <?php echo esc_html($client_type_direct); ?> value="<?php echo esc_attr(LIMIT_LOGIN_DIRECT_ADDR); ?>">
+						<label for="direct">
+							<?php esc_html_e('Direct connection','limit-login-attempts'); ?>
+						</label>
+						<br>
+						<input id="proxy" type="radio" name="client_type" <?php echo esc_attr($client_type_proxy); ?> value="<?php echo esc_attr(LIMIT_LOGIN_PROXY_ADDR); ?>">
+						<label for="proxy">
+							<?php esc_html_e('From behind a reversy proxy','limit-login-attempts'); ?>
+						</label>
+						<?php echo wp_kses_post($client_type_warning); ?>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row" valign="top"><?php esc_html_e('Handle cookie login','limit-login-attempts'); ?></th>
+					<td>
+						<input id="yes" type="radio" name="cookies" <?php echo esc_attr($cookies_yes); ?> value="1">
+						<label for="yes">
+							<?php esc_html_e('Yes','limit-login-attempts'); ?>
+						</label>
+						<br>
+						<input id="no" type="radio" name="cookies" <?php echo esc_attr($cookies_no); ?> value="0">
+						<label for="no">
+							<?php esc_html_e('No','limit-login-attempts'); ?>
+						</label>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row" valign="top"><?php esc_html_e('Notify on lockout','limit-login-attempts'); ?></th>
+					<td>
+						<input type="checkbox" name="lockout_notify_log" <?php echo esc_attr($log_checked); ?> value="log"> <?php esc_html_e('Log IP','limit-login-attempts'); ?><br>
+						<input type="checkbox" name="lockout_notify_email" <?php echo esc_attr($email_checked); ?> value="email"> <?php esc_html_e('Email to admin after','limit-login-attempts'); ?> <input type="text" size="3" maxlength="4" value="<?php echo esc_attr(limit_login_option('notify_email_after')); ?>" name="email_after"> <?php esc_html_e('lockouts','limit-login-attempts'); ?>
+					</td>
+				</tr>
+			</table>
+			<p class="submit">
+				<input name="update_options" class="button button-primary" value="<?php esc_html_e('Change Options','limit-login-attempts'); ?>" type="submit">
+			</p>
+		</form>
+
+		<?php
 		$log = get_option('limit_login_logged');
 
 		if (is_array($log) && count($log) > 0) {
-	  ?>
-	  <h3><?php esc_html_e('Lockout log','limit-login-attempts'); ?></h3>
-	  <form action="options-general.php?page=limit-login-attempts" method="post">
-		<?php wp_nonce_field('limit-login-attempts-options'); ?>
-		<input type="hidden" value="true" name="clear_log" />
-		<p class="submit">
-		  <input name="submit" value="<?php esc_html_e('Clear Log','limit-login-attempts'); ?>" type="submit" />
-		</p>
-	  </form>
-	  <style type="text/css" media="screen">
-		.limit-login-log th {
-			font-weight: bold;
-		}
-		.limit-login-log td, .limit-login-log th {
-			padding: 1px 5px 1px 5px;
-		}
-		td.limit-login-ip {
-			font-family:  "Courier New", Courier, monospace;
-			vertical-align: top;
-		}
-		td.limit-login-max {
-			width: 100%;
-		}
-	  </style>
-	  <div class="limit-login-log">
-		<table class="form-table">
-		  <?php limit_login_show_log($log); ?>
-		</table>
-	  </div>
-	  <?php
+			?>
+
+			<h3><?php esc_html_e('Lockout log','limit-login-attempts'); ?></h3>
+			<form action="options-general.php?page=limit-login-attempts" method="post">
+
+				<?php wp_nonce_field('limit-login-attempts-options'); ?>
+
+				<input type="hidden" value="true" name="clear_log">
+				<p class="submit">
+					<input name="submit" value="<?php esc_html_e('Clear Log','limit-login-attempts'); ?>" type="submit">
+				</p>
+			</form>
+
+			<style media="screen">
+			.limit-login-log th {
+				font-weight: bold;
+			}
+			.limit-login-log td, .limit-login-log th {
+				padding: 1px 5px 1px 5px;
+			}
+			td.limit-login-ip {
+				font-family:	"Courier New", Courier, monospace;
+				vertical-align: top;
+			}
+			td.limit-login-max {
+				width: 100%;
+			}
+			</style>
+
+			<div class="limit-login-log">
+			<table class="form-table">
+				<?php limit_login_show_log($log); ?>
+			</table>
+			</div>
+
+			<?php
 		} /* if showing $log */
-	  ?>
+		?>
 
 	</div>
+
 	<?php
 }
-
-?>
