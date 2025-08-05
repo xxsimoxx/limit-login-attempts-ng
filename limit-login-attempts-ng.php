@@ -6,8 +6,8 @@
 	Author URI:   https://simonefioravanti.it
 	Text Domain:  limit-login-attempts
 	Domain Path:  /languages
-	Version:      0.0.3
-	Requires CP:  1.0
+	Version:      0.0.4
+	Requires CP:  2.0
 	Requires PHP: 7.4
 
 
@@ -34,7 +34,7 @@
 
 
 
-if (!function_exists('classicpress_version')) {
+if (!function_exists('classicpress_version') || version_compare(classicpress_version(), '2', '<')) {
 	add_action('admin_init', 'limit_login_deactivate_plugin_now');
 	add_action('admin_notices', 'limit_login_error_is_wp');
 	unset( $_GET['activate'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
@@ -42,14 +42,16 @@ if (!function_exists('classicpress_version')) {
 }
 
 function limit_login_deactivate_plugin_now() {
-	if (is_plugin_active('limit-login-attempts/limit-login-attempts.php')) {
-		deactivate_plugins('limit-login-attempts/limit-login-attempts.php');
+	if (is_plugin_active('limit-login-attempts-ng/limit-login-attempts-ng.php')) {
+		deactivate_plugins('limit-login-attempts-ng/limit-login-attempts-ng.php');
 	}
 }
 
 function limit_login_error_is_wp() {
 	$class   = 'notice notice-error';
-	$message = esc_html__( 'Limit Login Attempts is a plugin meant to only work on ClassicPress sites.', 'limit-login-attempts');
+	$message = function_exists('classicpress_version') ?
+		esc_html__( 'Limit Login Attempts NG requires ClassicPress version 2.0.0 or above.', 'limit-login-attempts') :
+		esc_html__( 'Limit Login Attempts NG is a plugin meant to only work on ClassicPress sites.', 'limit-login-attempts');
 	printf('<div class="%1$s"><p>%2$s</p></div>', esc_attr($class), esc_html($message));
 }
 
