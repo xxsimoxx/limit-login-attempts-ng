@@ -1,12 +1,12 @@
 <?php
 /*
-	Plugin Name:  Limit Login Attempts
+	Plugin Name:  Limit Login Attempts NG
 	Description:  Limit rate of login attempts, including by way of cookies, for each IP.
 	Author:       Simone Fioravanti
 	Author URI:   https://simonefioravanti.it
 	Text Domain:  limit-login-attempts
 	Domain Path:  /languages
-	Version:      0.0.2
+	Version:      0.0.3
 	Requires CP:  1.0
 	Requires PHP: 7.4
 

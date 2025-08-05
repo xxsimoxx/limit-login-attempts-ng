@@ -1,4 +1,4 @@
-# Limit Login Attempts
+# Limit Login Attempts NG
 
 Limit rate of login attempts, including by way of cookies, for each IP. Fully customizable.
 

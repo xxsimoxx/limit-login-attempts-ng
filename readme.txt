@@ -1,4 +1,4 @@
-=== Limit Login Attempts ===
+=== Limit Login Attempts NG ===
 Tags: login, security, authentication
 Requires at least: 2.8
 Requires CP: 2.0
