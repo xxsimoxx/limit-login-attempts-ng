@@ -599,6 +599,19 @@ function limit_login_notify_log($user) {
 		$log[$ip] = array($user => 1);
 	}
 
+	/**
+	 * Filters how many IP are stored in the log list.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param int     $max_ips The maximum number of IP address to keeep in the logs.
+	 *                         Default 250. 0 means unlimited
+	 */
+	$max_log_size = apply_filters('limit_login_log_max_ips', 250);
+	if ($max_log_size !== 0 && count($log) > $max_log_size) {
+		array_shift($log);
+	}
+
 	if ($option === false) {
 		add_option('limit_login_logged', $log, '', 'no'); /* no autoload */
 	} else {

@@ -21,7 +21,7 @@ Features
 - Handles server behind reverse proxy
 - It is possible to whitelist IPs using a filter. But you probably shouldn't. :-)
 
-Translations: Bulgarian, Brazilian Portuguese, Catalan, Chinese (Traditional), Czech, Dutch, Finnish, French, German, Hungarian, Norwegian, Persian, Romanian, Russian, Spanish, Swedish, Turkish
+Translations: Bulgarian, Brazilian Portuguese, Catalan, Chinese (Traditional), Czech, Dutch, Finnish, French, German, Hungarian, Italian, Norwegian, Persian, Romanian, Russian, Spanish, Swedish, Turkish
 
 ## Installation
 
@@ -75,3 +75,20 @@ Either wait, or:
 If you have ftp / ssh access to the site rename the file `wp-content/plugins/limit-login-attempts/limit-login-attempts.php` to deactivate the plugin.
 
 If you have access to the database (for example through phpMyAdmin) you can clear the `limit_login_lockouts` option in the wordpress options table. In a default setup this would work: `UPDATE wp_options SET option_value = '' WHERE option_name = 'limit_login_lockouts'`.
+
+*How many IPs are logged?*
+
+By default 250.
+
+That said, there is now a filter which allows you to do it: "limit_login_log_max_ips".
+
+Setting the value to 0 means no limits.
+
+Example:
+
+```php
+function limit_login_log_unlimited_ips($max_ips) {
+	 return 0;
+}
+add_filter('limit_login_log_max_ips', 'limit_login_log_unlimited_ips', 10, 2);
+```
