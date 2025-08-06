@@ -147,8 +147,8 @@ msgstr "Azzera contatore"
 #: limit-login-attempts.php:1021
 msgid "%d lockout since last reset"
 msgid_plural "%d lockouts since last reset"
-msgstr[0] "% blocco dall'ultimo azzeramento"
-msgstr[1] "% blocchi dall'ultimo azzeramento"
+msgstr[0] "%d blocco dall'ultimo azzeramento"
+msgstr[1] "%d blocchi dall'ultimo azzeramento"
 
 #: limit-login-attempts.php:1022
 msgid "No lockouts yet"
