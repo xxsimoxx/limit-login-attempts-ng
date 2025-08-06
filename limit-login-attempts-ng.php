@@ -1066,7 +1066,7 @@ function limit_login_option_page()	{
 				<tr>
 					<th scope="row" valign="top"><?php esc_html_e('Active lockouts','limit-login-attempts'); ?></th>
 					<td>
-						<input name="reset_current" value="<?php esc_html_e('Restore Lockouts','limit-login-attempts'); ?>" type="submit">
+						<input name="reset_current" class="button button-danger" value="<?php esc_html_e('Restore Lockouts','limit-login-attempts'); ?>" type="submit">
 						<?php echo sprintf(esc_html__('%d IP is currently blocked from trying to log in','limit-login-attempts'), esc_html($lockouts_now)); ?>
 					</td>
 				</tr>
