@@ -32,11 +32,11 @@
 	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-
+namespace xxsimoxx\LimitLoginAttemptsNG;
 
 if (!function_exists('classicpress_version') || version_compare(classicpress_version(), '2', '<')) {
-	add_action('admin_init', 'limit_login_deactivate_plugin_now');
-	add_action('admin_notices', 'limit_login_error_is_wp');
+	add_action('admin_init', '\xxsimoxx\LimitLoginAttemptsNG\limit_login_deactivate_plugin_now');
+	add_action('admin_notices', '\xxsimoxx\LimitLoginAttemptsNG\limit_login_error_is_wp');
 	unset( $_GET['activate'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	return;
 }
@@ -109,7 +109,7 @@ $limit_login_nonempty_credentials = false; /* user and pwd nonempty */
  * Startup
  */
 
-add_action('plugins_loaded', 'limit_login_setup', 99999);
+add_action('plugins_loaded', '\xxsimoxx\LimitLoginAttemptsNG\limit_login_setup', 99999);
 
 
 /*
@@ -122,20 +122,20 @@ function limit_login_setup() {
 	limit_login_setup_options();
 
 	/* Filters and actions */
-	add_action('wp_login_failed', 'limit_login_failed');
+	add_action('wp_login_failed', '\xxsimoxx\LimitLoginAttemptsNG\limit_login_failed');
 	if (limit_login_option('cookies')) {
 		limit_login_handle_cookies();
-		add_action('auth_cookie_bad_username', 'limit_login_failed_cookie');
-		add_action('auth_cookie_bad_hash', 'limit_login_failed_cookie_hash');
-		add_action('auth_cookie_valid', 'limit_login_valid_cookie', 10, 2);
+		add_action('auth_cookie_bad_username', '\xxsimoxx\LimitLoginAttemptsNG\limit_login_failed_cookie');
+		add_action('auth_cookie_bad_hash', '\xxsimoxx\LimitLoginAttemptsNG\limit_login_failed_cookie_hash');
+		add_action('auth_cookie_valid', '\xxsimoxx\LimitLoginAttemptsNG\limit_login_valid_cookie', 10, 2);
 	}
-	add_filter('wp_authenticate_user', 'limit_login_wp_authenticate_user', 99999, 2);
-	add_filter('shake_error_codes', 'limit_login_failure_shake');
-	add_action('login_head', 'limit_login_add_error_message');
-	add_action('login_errors', 'limit_login_fixup_error_messages');
-	add_action('admin_menu', 'limit_login_admin_menu');
+	add_filter('wp_authenticate_user', '\xxsimoxx\LimitLoginAttemptsNG\limit_login_wp_authenticate_user', 99999, 2);
+	add_filter('shake_error_codes', '\xxsimoxx\LimitLoginAttemptsNG\limit_login_failure_shake');
+	add_action('login_head', '\xxsimoxx\LimitLoginAttemptsNG\limit_login_add_error_message');
+	add_action('login_errors', '\xxsimoxx\LimitLoginAttemptsNG\limit_login_fixup_error_messages');
+	add_action('admin_menu', '\xxsimoxx\LimitLoginAttemptsNG\limit_login_admin_menu');
 
-	add_action('wp_authenticate', 'limit_login_track_credentials', 10, 2);
+	add_action('wp_authenticate', '\xxsimoxx\LimitLoginAttemptsNG\limit_login_track_credentials', 10, 2);
 }
 
 
@@ -904,12 +904,12 @@ function limit_login_action_links( $links ) {
 	$settingslink = array( '<a href="'. admin_url( 'options-general.php?page=limit-login-attempts' ) .'">'. __( 'Settings', 'limit-login-attempts' ) .'</a>', );
 	return array_merge( $links, $settingslink );
 }
-add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'limit_login_action_links' );
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), '\xxsimoxx\LimitLoginAttemptsNG\limit_login_action_links' );
 
 
 /* Add admin options page */
 function limit_login_admin_menu() {
-	add_options_page('Limit Login Attempts', 'Limit Login Attempts', 'manage_options', 'limit-login-attempts', 'limit_login_option_page');
+	add_options_page('Limit Login Attempts', 'Limit Login Attempts', 'manage_options', 'limit-login-attempts', '\xxsimoxx\LimitLoginAttemptsNG\limit_login_option_page');
 }
 
 
