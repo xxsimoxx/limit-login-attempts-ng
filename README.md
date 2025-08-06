@@ -38,25 +38,25 @@ This plugin is intended for use with [ClassicPress](https://www.classicpress.net
 
 ## <a name="faq"></a> Frequently Asked Questions
 
-*Why not reset failed attempts on a successful login?*
+**Why not reset failed attempts on a successful login?**
 
 This is very much by design. Otherwise you could brute force the "admin" password by logging in as your own user every 4th attempt.
 
-*What is this option about site connection and reverse proxy?*
+**What is this option about site connection and reverse proxy?**
 
 A reverse proxy is a server in between the site and the Internet (perhaps handling caching or load-balancing). This makes getting the correct client IP to block slightly more complicated.
 
 The option default to NOT being behind a proxy -- which should be by far the common case.
 
-*How do I know if my site is behind a reverse proxy?*
+**How do I know if my site is behind a reverse proxy?**
 
 You probably are not or you would know. We show a pretty good guess on the option page. Set the option using this unless you are sure you know better.
 
-*Can I whitelist my IP so I don't get locked out?*
+**Can I whitelist my IP so I don't get locked out?**
 
 First please consider if you really need this. Generally speaking it is not a good idea to have exceptions to your security policies.
 
-That said, there is now a filter which allows you to do it: "limit_login_whitelist_ip".
+That said, there is now a filter which allows you to do it: `limit_login_whitelist_ip`.
 
 Example:
 
@@ -69,7 +69,7 @@ add_filter('limit_login_whitelist_ip', 'my_ip_whitelist', 10, 2);
 
 Note that we still do notification and logging as usual. This is meant to allow you to be aware of any suspicious activity from whitelisted IPs.
 
-*I locked myself out testing this thing, what do I do?*
+**I locked myself out testing this thing, what do I do?**
 
 Either wait, or:
 
@@ -77,11 +77,11 @@ If you have ftp / ssh access to the site rename the file `wp-content/plugins/lim
 
 If you have access to the database (for example through phpMyAdmin) you can clear the `limit_login_lockouts` option in the wordpress options table. In a default setup this would work: `UPDATE wp_options SET option_value = '' WHERE option_name = 'limit_login_lockouts'`.
 
-*How many IPs are logged?*
+**How many IPs are logged?**
 
 By default 250.
 
-That said, there is now a filter which allows you to do it: "limit_login_log_max_ips".
+That said, there is now a filter which allows you to do it: `limit_login_log_max_ips`.
 
 Setting the value to 0 means no limits.
 
