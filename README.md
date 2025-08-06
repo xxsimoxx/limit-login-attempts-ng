@@ -1,3 +1,6 @@
+![Limit Login Attempts NG banner](images/banner-1544x500.png "Limit Login Attempts NG")
+[![ClassicPress Directory Coding Standard checks.](https://github.com/xxsimoxx/limit-login-attempts-ng/actions/workflows/cpcs.yml/badge.svg)](https://github.com/xxsimoxx/limit-login-attempts-ng/actions/workflows/cpcs.yml)
+
 # Limit Login Attempts NG
 
 Limit rate of login attempts, including by way of cookies, for each IP. Fully customizable.
