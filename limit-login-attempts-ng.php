@@ -886,6 +886,14 @@ function limit_login_sanitize_variables() {
 }
 
 
+/* Add settings link */
+function limit_login_action_links( $links ) {
+	$settingslink = array( '<a href="'. admin_url( 'options-general.php?page=limit-login-attempts' ) .'">'. __( 'Settings', 'limit-login-attempts' ) .'</a>', );
+	return array_merge( $links, $settingslink );
+}
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'limit_login_action_links' );
+
+
 /* Add admin options page */
 function limit_login_admin_menu() {
 	add_options_page('Limit Login Attempts', 'Limit Login Attempts', 'manage_options', 'limit-login-attempts', 'limit_login_option_page');
