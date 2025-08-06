@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: limit-login-attempts 1.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/limit-login-"
 "attempts-ng\n"
-"POT-Creation-Date: 2025-08-06T07:23:56+00:00\n"
+"POT-Creation-Date: 2025-08-06T13:07:41+00:00\n"
 "PO-Revision-Date: 2009-05-01 19:49+0200\n"
 "Last-Translator: canarkadas <durustem@gmail.com>\n"
 "Language-Team: German <michael@skerwiderski.de>\n"
@@ -89,73 +89,77 @@ msgstr ""
 msgid "IP was blocked for %s"
 msgstr "%s no'lu IP engellendi"
 
-#: limit-login-attempts-ng.php:636
+#: limit-login-attempts-ng.php:649
 msgid "<strong>ERROR</strong>: Too many failed login attempts."
 msgstr "<strong>HATA</strong>: Çok fazla sayıda başarısız giriş denemesi."
 
-#: limit-login-attempts-ng.php:640
+#: limit-login-attempts-ng.php:653
 msgid "Please try again later."
 msgstr "Lütfen daha sonra tekrar deneyin."
 
-#: limit-login-attempts-ng.php:647
+#: limit-login-attempts-ng.php:660
 msgid "Please try again in %d hour."
 msgid_plural "Please try again in %d hours."
 msgstr[0] "Lütfen %d saat sonra tekrar deneyin."
 msgstr[1] "Lütfen %d saat sonra tekrar deneyin."
 
-#: limit-login-attempts-ng.php:649
+#: limit-login-attempts-ng.php:662
 msgid "Please try again in %d minute."
 msgid_plural "Please try again in %d minutes."
 msgstr[0] "Lütfen %d dakika sonra tekrar deneyin."
 msgstr[1] "Lütfen %d dakika sonra tekrar deneyin."
 
-#: limit-login-attempts-ng.php:678
+#: limit-login-attempts-ng.php:691
 msgid "<strong>%d</strong> attempt remaining."
 msgid_plural "<strong>%d</strong> attempts remaining."
 msgstr[0] "<strong>%d</strong> kez daha giriş yapmayı deneyebilirsiniz."
 msgstr[1] "<strong>%d</strong> kez daha giriş yapmayı deneyebilirsiniz."
 
-#: limit-login-attempts-ng.php:749
+#: limit-login-attempts-ng.php:762
 msgid "<strong>ERROR</strong>: Incorrect username or password."
 msgstr "<strong>HATA</ strong>: Yanlış kullanıcı adı veya şifre."
 
-#: limit-login-attempts-ng.php:901
+#: limit-login-attempts-ng.php:904
+msgid "Settings"
+msgstr ""
+
+#: limit-login-attempts-ng.php:922
 msgctxt "Internet address"
 msgid "IP"
 msgstr ""
 
-#: limit-login-attempts-ng.php:901
+#: limit-login-attempts-ng.php:922
 msgid "Tried to log in as"
 msgstr "İsim ve deneme sayısı"
 
-#: limit-login-attempts-ng.php:906
+#: limit-login-attempts-ng.php:927
 msgid "%d lockout"
 msgid_plural "%d lockouts"
 msgstr[0] "%d giriş denemesi"
 msgstr[1] "%d giriş denemesi"
 
-#: limit-login-attempts-ng.php:935
+#: limit-login-attempts-ng.php:956
 msgid "Cleared IP log"
 msgstr "IP denemesi yapanların bilgileri silindi"
 
-#: limit-login-attempts-ng.php:943
+#: limit-login-attempts-ng.php:964
 msgid "Reset lockout count"
 msgstr "Giriş denemeleri sayacı sıfırlandı"
 
-#: limit-login-attempts-ng.php:951
+#: limit-login-attempts-ng.php:972
 msgid "Cleared current lockouts"
 msgstr "Giriş denemeleri silindi"
 
-#: limit-login-attempts-ng.php:980
+#: limit-login-attempts-ng.php:1001
 msgid "Options changed"
 msgstr "Seçenekler değiştirildi"
 
-#: limit-login-attempts-ng.php:998
+#: limit-login-attempts-ng.php:1019
 msgid "It appears the site is reached directly (from your IP: %s)"
 msgstr "Sizin IP adresiniz: %s (bu IP ile site gezilebilir)."
 
 #. Translators: 1: proxy IP 2: your IP
-#: limit-login-attempts-ng.php:1001
+#: limit-login-attempts-ng.php:1022
 #, fuzzy
 msgid ""
 "It appears the site is reached through a proxy server (proxy IP: %1$s, your "
@@ -164,7 +168,7 @@ msgstr ""
 "Proxy sunucusu kullanıyorsunuz (proxy IP: %s) %s IP adresinizle ile site "
 "gezilebilir."
 
-#: limit-login-attempts-ng.php:1009
+#: limit-login-attempts-ng.php:1030
 msgid ""
 "<strong>Current setting appears to be invalid</strong>. Please make sure it "
 "is correct. Further information can be found <a href=\"%s\" "
@@ -173,124 +177,125 @@ msgstr ""
 "<strong>Seçenekler geçersiz</strong>. Girdilerin doğru olduğundan emin olun, "
 "daha fazla bilgi için <a href=\"%s\" title=\"FAQ\">bakınız.</a>"
 
-#: limit-login-attempts-ng.php:1018
+#: limit-login-attempts-ng.php:1039
 #, fuzzy
 msgid "Limit Login Attempts NG Settings"
 msgstr "Limit Login Attempts Ayarlar"
 
-#: limit-login-attempts-ng.php:1019
+#: limit-login-attempts-ng.php:1040
 msgid "Statistics"
 msgstr "İstatistik"
 
-#: limit-login-attempts-ng.php:1026
+#: limit-login-attempts-ng.php:1047
 msgid "Total lockouts"
 msgstr "Tüm giriş denemeleri"
 
-#: limit-login-attempts-ng.php:1031
+#: limit-login-attempts-ng.php:1052
 msgid "Reset Counter"
 msgstr "Sayacı Sıfırla"
 
-#: limit-login-attempts-ng.php:1032
+#: limit-login-attempts-ng.php:1053
 msgid "%d lockout since last reset"
 msgid_plural "%d lockouts since last reset"
 msgstr[0] "En son sıfırlamadan sonra gerçekleşen giriş denemesi sayısı %d "
 msgstr[1] "En son sıfırlamadan sonra gerçekleşen giriş denemesi sayısı %d "
 
-#: limit-login-attempts-ng.php:1036
+#: limit-login-attempts-ng.php:1057
 msgid "No lockouts yet"
 msgstr "Henüz giriş denemesi yok"
 
-#: limit-login-attempts-ng.php:1046
+#: limit-login-attempts-ng.php:1067
 msgid "Active lockouts"
 msgstr "Aktif giriş denemesi"
 
-#: limit-login-attempts-ng.php:1048
+#: limit-login-attempts-ng.php:1069
 msgid "Restore Lockouts"
 msgstr "Giriş denemelerini düzenleyin"
 
-#: limit-login-attempts-ng.php:1049
-msgid "%d IP is currently blocked from trying to log in"
+#: limit-login-attempts-ng.php:1070
+#, fuzzy
+msgid "%d IP currently blocked from trying to log in"
 msgstr "%d no'lu IP halen engelleniyor"
 
-#: limit-login-attempts-ng.php:1060
+#: limit-login-attempts-ng.php:1081
 msgid "Options"
 msgstr "Tercihler"
 
-#: limit-login-attempts-ng.php:1067
+#: limit-login-attempts-ng.php:1088
 msgid "Lockout"
 msgstr "Giriş denemeleri"
 
-#: limit-login-attempts-ng.php:1069
+#: limit-login-attempts-ng.php:1090
 msgid "allowed retries"
 msgstr "Müsaade edilen giriş denemesi sayınızı yazınız."
 
-#: limit-login-attempts-ng.php:1070
+#: limit-login-attempts-ng.php:1091
 msgid "minutes lockout"
 msgstr "Dakika sonra yeniden giriş denemesi yapılabilsin."
 
-#: limit-login-attempts-ng.php:1071
+#: limit-login-attempts-ng.php:1092
 msgid "lockouts increase lockout time to"
 msgstr "Defadan fazla giriş denemesi yapılamasın."
 
-#: limit-login-attempts-ng.php:1071
+#: limit-login-attempts-ng.php:1092
 msgid "hours"
 msgstr "(Saat içinde)"
 
-#: limit-login-attempts-ng.php:1072
+#: limit-login-attempts-ng.php:1093
 msgid "hours until retries are reset"
 msgstr "Sıfırlamaya kadar yapılabilecek giriş denemesi sayınızı yazınız."
 
-#: limit-login-attempts-ng.php:1076
+#: limit-login-attempts-ng.php:1097
 msgid "Site connection"
 msgstr "Site bağlantınız"
 
-#: limit-login-attempts-ng.php:1081
+#: limit-login-attempts-ng.php:1102
 msgid "Direct connection"
 msgstr "Direk bağlantı"
 
-#: limit-login-attempts-ng.php:1086
+#: limit-login-attempts-ng.php:1107
 msgid "From behind a reversy proxy"
 msgstr "Bir proxy (vekil, aracı sunucu) arkasından"
 
-#: limit-login-attempts-ng.php:1092
+#: limit-login-attempts-ng.php:1113
 msgid "Handle cookie login"
 msgstr "Çerezler kullanılarak giriş yapılabilsin"
 
-#: limit-login-attempts-ng.php:1096
+#: limit-login-attempts-ng.php:1117
 msgid "Yes"
 msgstr "Evet"
 
-#: limit-login-attempts-ng.php:1101
+#: limit-login-attempts-ng.php:1122
 msgid "No"
 msgstr "Hayır"
 
-#: limit-login-attempts-ng.php:1106
+#: limit-login-attempts-ng.php:1127
 msgid "Notify on lockout"
 msgstr ""
 "Giriş denemeleri bildirilsin (Yazacağınız sayı giriş denemesini değil, her "
 "IP no'su adına ayrı bir kullanıcıyı ifade eder)"
 
-#: limit-login-attempts-ng.php:1108
+#: limit-login-attempts-ng.php:1129
 msgid "Log IP"
 msgstr "IP kayıtları dahil"
 
-#: limit-login-attempts-ng.php:1109
+#: limit-login-attempts-ng.php:1130
 msgid "Email to admin after"
 msgstr "Site yöneticisi"
 
-#: limit-login-attempts-ng.php:1109
+#: limit-login-attempts-ng.php:1130
 msgid "lockouts"
 msgstr "giriş denemesi olduğunda e-posta ile bilgilendirilsin."
 
-#: limit-login-attempts-ng.php:1114
+#: limit-login-attempts-ng.php:1135
 msgid "Change Options"
 msgstr "KAYDET"
 
-#: limit-login-attempts-ng.php:1124
+#: limit-login-attempts-ng.php:1145
 msgid "Lockout log"
 msgstr "Giriş denemesi kayıtları"
 
-#: limit-login-attempts-ng.php:1131
+#: limit-login-attempts-ng.php:1152
 msgid "Clear Log"
 msgstr "Kayıtları Sil"
 

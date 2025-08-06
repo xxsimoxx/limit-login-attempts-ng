@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: limit-login-attempts 1.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/limit-login-"
 "attempts-ng\n"
-"POT-Creation-Date: 2025-08-06T07:23:56+00:00\n"
+"POT-Creation-Date: 2025-08-06T13:07:41+00:00\n"
 "PO-Revision-Date: 2010-01-26 16:08+0100\n"
 "Last-Translator: Vereskuti Balint <balint@vereskuti.eu>\n"
 "Language-Team: Hungarian <balint@vereskuti.info>\n"
@@ -89,73 +89,77 @@ msgstr ""
 msgid "IP was blocked for %s"
 msgstr "Az IP-cím %s időre kizárásra került."
 
-#: limit-login-attempts-ng.php:636
+#: limit-login-attempts-ng.php:649
 msgid "<strong>ERROR</strong>: Too many failed login attempts."
 msgstr "<strong>HIBA</strong>: Túl sok hibás bejeletkezési kísérlet."
 
-#: limit-login-attempts-ng.php:640
+#: limit-login-attempts-ng.php:653
 msgid "Please try again later."
 msgstr "Próbáljs meg később."
 
-#: limit-login-attempts-ng.php:647
+#: limit-login-attempts-ng.php:660
 msgid "Please try again in %d hour."
 msgid_plural "Please try again in %d hours."
 msgstr[0] "Próbálja meg %d óra múlva."
 msgstr[1] "Próbálja meg %d óra múlva."
 
-#: limit-login-attempts-ng.php:649
+#: limit-login-attempts-ng.php:662
 msgid "Please try again in %d minute."
 msgid_plural "Please try again in %d minutes."
 msgstr[0] "Próbálja meg %d perc múlva."
 msgstr[1] "Próbálja meg %d perc múlva."
 
-#: limit-login-attempts-ng.php:678
+#: limit-login-attempts-ng.php:691
 msgid "<strong>%d</strong> attempt remaining."
 msgid_plural "<strong>%d</strong> attempts remaining."
 msgstr[0] "Még <strong>%d</strong> bejelentkezési lehetőség maradt."
 msgstr[1] "Még <strong>%d</strong> bejelentkezési lehetőség maradt."
 
-#: limit-login-attempts-ng.php:749
+#: limit-login-attempts-ng.php:762
 msgid "<strong>ERROR</strong>: Incorrect username or password."
 msgstr "<strong>HIBA</strong>: Érvénytelen felhasználónév vagy jelszó."
 
-#: limit-login-attempts-ng.php:901
+#: limit-login-attempts-ng.php:904
+msgid "Settings"
+msgstr ""
+
+#: limit-login-attempts-ng.php:922
 msgctxt "Internet address"
 msgid "IP"
 msgstr ""
 
-#: limit-login-attempts-ng.php:901
+#: limit-login-attempts-ng.php:922
 msgid "Tried to log in as"
 msgstr "Bejelentkezés mint"
 
-#: limit-login-attempts-ng.php:906
+#: limit-login-attempts-ng.php:927
 msgid "%d lockout"
 msgid_plural "%d lockouts"
 msgstr[0] "%d kizárás"
 msgstr[1] "%d kizárás"
 
-#: limit-login-attempts-ng.php:935
+#: limit-login-attempts-ng.php:956
 msgid "Cleared IP log"
 msgstr "IP log törölve"
 
-#: limit-login-attempts-ng.php:943
+#: limit-login-attempts-ng.php:964
 msgid "Reset lockout count"
 msgstr "Kizárási számláló nullázása"
 
-#: limit-login-attempts-ng.php:951
+#: limit-login-attempts-ng.php:972
 msgid "Cleared current lockouts"
 msgstr "A kizárások feloldásra kerültek"
 
-#: limit-login-attempts-ng.php:980
+#: limit-login-attempts-ng.php:1001
 msgid "Options changed"
 msgstr "A beállítások megváltoztatásra kerültek"
 
-#: limit-login-attempts-ng.php:998
+#: limit-login-attempts-ng.php:1019
 msgid "It appears the site is reached directly (from your IP: %s)"
 msgstr "Az oldal direkt módon került elérésre (%s IP-címről)"
 
 #. Translators: 1: proxy IP 2: your IP
-#: limit-login-attempts-ng.php:1001
+#: limit-login-attempts-ng.php:1022
 #, fuzzy
 msgid ""
 "It appears the site is reached through a proxy server (proxy IP: %1$s, your "
@@ -163,7 +167,7 @@ msgid ""
 msgstr ""
 "Az oldal proxy-n keresztül került elérésre (proxy IP: %s, saját IP: %s)"
 
-#: limit-login-attempts-ng.php:1009
+#: limit-login-attempts-ng.php:1030
 msgid ""
 "<strong>Current setting appears to be invalid</strong>. Please make sure it "
 "is correct. Further information can be found <a href=\"%s\" "
@@ -172,122 +176,123 @@ msgstr ""
 "<strong>Helytelenek az aktuális beállítások</strong>. További információk <a "
 "href=\"%s\" title=\"FAQ\">itt</a> érhetők el."
 
-#: limit-login-attempts-ng.php:1018
+#: limit-login-attempts-ng.php:1039
 #, fuzzy
 msgid "Limit Login Attempts NG Settings"
 msgstr "A Limit Login Attempts beállításai"
 
-#: limit-login-attempts-ng.php:1019
+#: limit-login-attempts-ng.php:1040
 msgid "Statistics"
 msgstr "Statisztikák"
 
-#: limit-login-attempts-ng.php:1026
+#: limit-login-attempts-ng.php:1047
 msgid "Total lockouts"
 msgstr "Eddigi kizárások"
 
-#: limit-login-attempts-ng.php:1031
+#: limit-login-attempts-ng.php:1052
 msgid "Reset Counter"
 msgstr "Számláló nullázása"
 
-#: limit-login-attempts-ng.php:1032
+#: limit-login-attempts-ng.php:1053
 msgid "%d lockout since last reset"
 msgid_plural "%d lockouts since last reset"
 msgstr[0] "%d kizárás az előző nullázás óta"
 msgstr[1] "%d kizárás az előző nullázás óta"
 
-#: limit-login-attempts-ng.php:1036
+#: limit-login-attempts-ng.php:1057
 msgid "No lockouts yet"
 msgstr "Jelenleg nincs aktív kizárás"
 
-#: limit-login-attempts-ng.php:1046
+#: limit-login-attempts-ng.php:1067
 msgid "Active lockouts"
 msgstr "Aktív kizárás(ok)"
 
-#: limit-login-attempts-ng.php:1048
+#: limit-login-attempts-ng.php:1069
 msgid "Restore Lockouts"
 msgstr "Kizárások feloldása"
 
-#: limit-login-attempts-ng.php:1049
-msgid "%d IP is currently blocked from trying to log in"
+#: limit-login-attempts-ng.php:1070
+#, fuzzy
+msgid "%d IP currently blocked from trying to log in"
 msgstr "%d IP, melyről bejelentkezni próbál jelenleg kizárva!"
 
-#: limit-login-attempts-ng.php:1060
+#: limit-login-attempts-ng.php:1081
 msgid "Options"
 msgstr "Beállítások"
 
-#: limit-login-attempts-ng.php:1067
+#: limit-login-attempts-ng.php:1088
 msgid "Lockout"
 msgstr "Kizárás"
 
-#: limit-login-attempts-ng.php:1069
+#: limit-login-attempts-ng.php:1090
 msgid "allowed retries"
 msgstr "engedélyezett bejelentkezési lehetőség"
 
-#: limit-login-attempts-ng.php:1070
+#: limit-login-attempts-ng.php:1091
 msgid "minutes lockout"
 msgstr "perc kizárás az engedélyezett lehetőségek elérése után"
 
-#: limit-login-attempts-ng.php:1071
+#: limit-login-attempts-ng.php:1092
 msgid "lockouts increase lockout time to"
 msgstr "kizárás ennyivel emeli meg a teljes kizárási időt: "
 
-#: limit-login-attempts-ng.php:1071
+#: limit-login-attempts-ng.php:1092
 msgid "hours"
 msgstr "óra"
 
-#: limit-login-attempts-ng.php:1072
+#: limit-login-attempts-ng.php:1093
 msgid "hours until retries are reset"
 msgstr "óra teljen el a hibás bejelentkezések visszaállításáig"
 
-#: limit-login-attempts-ng.php:1076
+#: limit-login-attempts-ng.php:1097
 msgid "Site connection"
 msgstr "Oldal elérése"
 
-#: limit-login-attempts-ng.php:1081
+#: limit-login-attempts-ng.php:1102
 msgid "Direct connection"
 msgstr "direkt-elérés"
 
-#: limit-login-attempts-ng.php:1086
+#: limit-login-attempts-ng.php:1107
 msgid "From behind a reversy proxy"
 msgstr "elérés Reverse Proxy Serveren keresztül"
 
-#: limit-login-attempts-ng.php:1092
+#: limit-login-attempts-ng.php:1113
 msgid "Handle cookie login"
 msgstr "Cookie-n keresztüli bejelentkezés"
 
-#: limit-login-attempts-ng.php:1096
+#: limit-login-attempts-ng.php:1117
 msgid "Yes"
 msgstr "Igen"
 
-#: limit-login-attempts-ng.php:1101
+#: limit-login-attempts-ng.php:1122
 msgid "No"
 msgstr "Nem"
 
-#: limit-login-attempts-ng.php:1106
+#: limit-login-attempts-ng.php:1127
 msgid "Notify on lockout"
 msgstr "Értesítés kizárásról"
 
-#: limit-login-attempts-ng.php:1108
+#: limit-login-attempts-ng.php:1129
 msgid "Log IP"
 msgstr "IP logok mentése"
 
-#: limit-login-attempts-ng.php:1109
+#: limit-login-attempts-ng.php:1130
 msgid "Email to admin after"
 msgstr "Email az adminisztrátornak "
 
-#: limit-login-attempts-ng.php:1109
+#: limit-login-attempts-ng.php:1130
 msgid "lockouts"
 msgstr "darab kizárás után"
 
-#: limit-login-attempts-ng.php:1114
+#: limit-login-attempts-ng.php:1135
 msgid "Change Options"
 msgstr "Beállítások mentése"
 
-#: limit-login-attempts-ng.php:1124
+#: limit-login-attempts-ng.php:1145
 msgid "Lockout log"
 msgstr "Kizárási napló"
 
-#: limit-login-attempts-ng.php:1131
+#: limit-login-attempts-ng.php:1152
 msgid "Clear Log"
 msgstr "Log törlése"
 

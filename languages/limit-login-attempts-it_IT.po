@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Limit Login Attempts 1.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/limit-login-"
 "attempts-ng\n"
-"POT-Creation-Date: 2025-08-06T07:23:56+00:00\n"
+"POT-Creation-Date: 2025-08-06T13:07:41+00:00\n"
 "PO-Revision-Date: 2025-08-05 12:52+0200\n"
 "Last-Translator: Simone Fioravanti <simone@gieffeedizioni.it>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -40,12 +40,12 @@ msgstr ""
 
 #: limit-login-attempts-ng.php:52
 msgid "Limit Login Attempts NG requires ClassicPress version 2.0.0 or above."
-msgstr ""
+msgstr "Limit Login Attempts NG richiede ClassicPress versione 2.0.0 o superiore."
 
 #: limit-login-attempts-ng.php:52
 msgid ""
 "Limit Login Attempts NG is a plugin meant to only work on ClassicPress sites."
-msgstr ""
+msgstr "Limit Login Attempts NG è un plugin specifico per ClassicPress."
 
 #: limit-login-attempts-ng.php:542
 msgid "%d hour"
@@ -85,73 +85,77 @@ msgstr "L'IP non è stato bloccato a causa di una whitelist esterna"
 msgid "IP was blocked for %s"
 msgstr "L'IP è stato bloccato per %s"
 
-#: limit-login-attempts-ng.php:636
+#: limit-login-attempts-ng.php:649
 msgid "<strong>ERROR</strong>: Too many failed login attempts."
 msgstr "<strong>ERRORE</strong>: Troppi tentativi di accesso falliti."
 
-#: limit-login-attempts-ng.php:640
+#: limit-login-attempts-ng.php:653
 msgid "Please try again later."
 msgstr "Riprova più tardi."
 
-#: limit-login-attempts-ng.php:647
+#: limit-login-attempts-ng.php:660
 msgid "Please try again in %d hour."
 msgid_plural "Please try again in %d hours."
 msgstr[0] "Riprova tra %d ora."
 msgstr[1] "Riprova tra %d ore."
 
-#: limit-login-attempts-ng.php:649
+#: limit-login-attempts-ng.php:662
 msgid "Please try again in %d minute."
 msgid_plural "Please try again in %d minutes."
 msgstr[0] "Riprova tra %d minuto."
 msgstr[1] "Riprova tra %d minuti."
 
-#: limit-login-attempts-ng.php:678
+#: limit-login-attempts-ng.php:691
 msgid "<strong>%d</strong> attempt remaining."
 msgid_plural "<strong>%d</strong> attempts remaining."
 msgstr[0] ""
 msgstr[1] ""
 
-#: limit-login-attempts-ng.php:749
+#: limit-login-attempts-ng.php:762
 msgid "<strong>ERROR</strong>: Incorrect username or password."
 msgstr "<strong>ERRORE</strong>: Nome utente o password sbagliati."
 
-#: limit-login-attempts-ng.php:901
+#: limit-login-attempts-ng.php:904
+msgid "Settings"
+msgstr ""
+
+#: limit-login-attempts-ng.php:922
 msgctxt "Internet address"
 msgid "IP"
 msgstr "IP"
 
-#: limit-login-attempts-ng.php:901
+#: limit-login-attempts-ng.php:922
 msgid "Tried to log in as"
 msgstr "Provato ad accedere come"
 
-#: limit-login-attempts-ng.php:906
+#: limit-login-attempts-ng.php:927
 msgid "%d lockout"
 msgid_plural "%d lockouts"
 msgstr[0] "%d blocco"
 msgstr[1] "%d blocchi"
 
-#: limit-login-attempts-ng.php:935
+#: limit-login-attempts-ng.php:956
 msgid "Cleared IP log"
 msgstr "Lista degli IP svuotata"
 
-#: limit-login-attempts-ng.php:943
+#: limit-login-attempts-ng.php:964
 msgid "Reset lockout count"
 msgstr "Azzera il conteggio dei blocchi"
 
-#: limit-login-attempts-ng.php:951
+#: limit-login-attempts-ng.php:972
 msgid "Cleared current lockouts"
 msgstr "Azzerato i blocchi correnti"
 
-#: limit-login-attempts-ng.php:980
+#: limit-login-attempts-ng.php:1001
 msgid "Options changed"
 msgstr "Opzioni aggiornate"
 
-#: limit-login-attempts-ng.php:998
+#: limit-login-attempts-ng.php:1019
 msgid "It appears the site is reached directly (from your IP: %s)"
 msgstr "Sembra che il sito sia raggiungibile direttamente (dal tuo IP: %s)"
 
 #. Translators: 1: proxy IP 2: your IP
-#: limit-login-attempts-ng.php:1001
+#: limit-login-attempts-ng.php:1022
 #, fuzzy
 msgid ""
 "It appears the site is reached through a proxy server (proxy IP: %1$s, your "
@@ -160,7 +164,7 @@ msgstr ""
 "Sembra che il sito sia raggiungibile tramite un server proxy (IP del proxy: "
 "%s, il tuo IP: %s)"
 
-#: limit-login-attempts-ng.php:1009
+#: limit-login-attempts-ng.php:1030
 msgid ""
 "<strong>Current setting appears to be invalid</strong>. Please make sure it "
 "is correct. Further information can be found <a href=\"%s\" "
@@ -170,121 +174,122 @@ msgstr ""
 "assicurati della correttezza. Maggiori informazioni potrai trovarle <a "
 "href=\"%s\" title=\"FAQ\">qui</a>"
 
-#: limit-login-attempts-ng.php:1018
+#: limit-login-attempts-ng.php:1039
 #, fuzzy
 msgid "Limit Login Attempts NG Settings"
 msgstr "Configurazione di Limit Login Attempts"
 
-#: limit-login-attempts-ng.php:1019
+#: limit-login-attempts-ng.php:1040
 msgid "Statistics"
 msgstr "Statistiche"
 
-#: limit-login-attempts-ng.php:1026
+#: limit-login-attempts-ng.php:1047
 msgid "Total lockouts"
 msgstr "Totale blocchi"
 
-#: limit-login-attempts-ng.php:1031
+#: limit-login-attempts-ng.php:1052
 msgid "Reset Counter"
 msgstr "Azzera contatore"
 
-#: limit-login-attempts-ng.php:1032
+#: limit-login-attempts-ng.php:1053
 msgid "%d lockout since last reset"
 msgid_plural "%d lockouts since last reset"
 msgstr[0] "%d blocco dall'ultimo azzeramento"
 msgstr[1] "%d blocchi dall'ultimo azzeramento"
 
-#: limit-login-attempts-ng.php:1036
+#: limit-login-attempts-ng.php:1057
 msgid "No lockouts yet"
 msgstr "Nessun blocco"
 
-#: limit-login-attempts-ng.php:1046
+#: limit-login-attempts-ng.php:1067
 msgid "Active lockouts"
 msgstr "Blocchi attivi"
 
-#: limit-login-attempts-ng.php:1048
+#: limit-login-attempts-ng.php:1069
 msgid "Restore Lockouts"
 msgstr "Ripristina blocchi"
 
-#: limit-login-attempts-ng.php:1049
-msgid "%d IP is currently blocked from trying to log in"
-msgstr "L'IP %d è attualmente bloccato"
+#: limit-login-attempts-ng.php:1070
+#, fuzzy
+msgid "%d IP currently blocked from trying to log in"
+msgstr "%d IP attualmente bloccati"
 
-#: limit-login-attempts-ng.php:1060
+#: limit-login-attempts-ng.php:1081
 msgid "Options"
 msgstr "Opzioni"
 
-#: limit-login-attempts-ng.php:1067
+#: limit-login-attempts-ng.php:1088
 msgid "Lockout"
 msgstr "Blocco"
 
-#: limit-login-attempts-ng.php:1069
+#: limit-login-attempts-ng.php:1090
 msgid "allowed retries"
 msgstr "tentativi consentiti"
 
-#: limit-login-attempts-ng.php:1070
+#: limit-login-attempts-ng.php:1091
 msgid "minutes lockout"
 msgstr "minuti di blocco"
 
-#: limit-login-attempts-ng.php:1071
+#: limit-login-attempts-ng.php:1092
 msgid "lockouts increase lockout time to"
 msgstr "i blocchi aumentano il tempo di blocco a"
 
-#: limit-login-attempts-ng.php:1071
+#: limit-login-attempts-ng.php:1092
 msgid "hours"
 msgstr "ore"
 
-#: limit-login-attempts-ng.php:1072
+#: limit-login-attempts-ng.php:1093
 msgid "hours until retries are reset"
 msgstr "ore trascorse dall'azzeramento"
 
-#: limit-login-attempts-ng.php:1076
+#: limit-login-attempts-ng.php:1097
 msgid "Site connection"
 msgstr "Connessione del sito"
 
-#: limit-login-attempts-ng.php:1081
+#: limit-login-attempts-ng.php:1102
 msgid "Direct connection"
 msgstr "Connessione diretta"
 
-#: limit-login-attempts-ng.php:1086
+#: limit-login-attempts-ng.php:1107
 msgid "From behind a reversy proxy"
 msgstr "Connessione attraverso un reverse proxy"
 
-#: limit-login-attempts-ng.php:1092
+#: limit-login-attempts-ng.php:1113
 msgid "Handle cookie login"
 msgstr "Gestisci login coi cookies"
 
-#: limit-login-attempts-ng.php:1096
+#: limit-login-attempts-ng.php:1117
 msgid "Yes"
 msgstr "Si"
 
-#: limit-login-attempts-ng.php:1101
+#: limit-login-attempts-ng.php:1122
 msgid "No"
 msgstr "No"
 
-#: limit-login-attempts-ng.php:1106
+#: limit-login-attempts-ng.php:1127
 msgid "Notify on lockout"
 msgstr "Notifica in caso di blocco"
 
-#: limit-login-attempts-ng.php:1108
+#: limit-login-attempts-ng.php:1129
 msgid "Log IP"
 msgstr "Registra IP"
 
-#: limit-login-attempts-ng.php:1109
+#: limit-login-attempts-ng.php:1130
 msgid "Email to admin after"
 msgstr ""
 
-#: limit-login-attempts-ng.php:1109
+#: limit-login-attempts-ng.php:1130
 msgid "lockouts"
 msgstr "Blocchi"
 
-#: limit-login-attempts-ng.php:1114
+#: limit-login-attempts-ng.php:1135
 msgid "Change Options"
 msgstr "Cambia le impostazioni"
 
-#: limit-login-attempts-ng.php:1124
+#: limit-login-attempts-ng.php:1145
 msgid "Lockout log"
 msgstr "Log dei blocchi"
 
-#: limit-login-attempts-ng.php:1131
+#: limit-login-attempts-ng.php:1152
 msgid "Clear Log"
 msgstr "Cancella log"

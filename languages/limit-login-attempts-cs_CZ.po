@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: limit-login-attempts 1.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/limit-login-"
 "attempts-ng\n"
-"POT-Creation-Date: 2025-08-06T07:23:56+00:00\n"
+"POT-Creation-Date: 2025-08-06T13:07:41+00:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jakub Jedelsky <jakub.jedelsky@gmail.com>\n"
 "Language-Team: \n"
@@ -90,77 +90,81 @@ msgstr ""
 msgid "IP was blocked for %s"
 msgstr "IP adresa byla zablokována na %s"
 
-#: limit-login-attempts-ng.php:636
+#: limit-login-attempts-ng.php:649
 msgid "<strong>ERROR</strong>: Too many failed login attempts."
 msgstr "<strong>CHYBA:</strong> Příliš mnoho chybných pokusů o přihlášení"
 
-#: limit-login-attempts-ng.php:640
+#: limit-login-attempts-ng.php:653
 msgid "Please try again later."
 msgstr "Prosím, opakujte akci později."
 
-#: limit-login-attempts-ng.php:647
+#: limit-login-attempts-ng.php:660
 msgid "Please try again in %d hour."
 msgid_plural "Please try again in %d hours."
 msgstr[0] "Prosím, opakujte akci za %d hodinu."
 msgstr[1] "Prosím, opakujte akci za %d hodiny."
 msgstr[2] "Prosím, opakujte akci za %d hodin."
 
-#: limit-login-attempts-ng.php:649
+#: limit-login-attempts-ng.php:662
 msgid "Please try again in %d minute."
 msgid_plural "Please try again in %d minutes."
 msgstr[0] "Prosím, opakujte akci za %d minutu."
 msgstr[1] "Prosím, opakujte akci za %d minuty."
 msgstr[2] "Prosím, opakujte akci za %d minut."
 
-#: limit-login-attempts-ng.php:678
+#: limit-login-attempts-ng.php:691
 msgid "<strong>%d</strong> attempt remaining."
 msgid_plural "<strong>%d</strong> attempts remaining."
 msgstr[0] "<strong>%d</strong> zbývající pokusů."
 msgstr[1] "<strong>%d</strong> zbývající pokusy."
 msgstr[2] "<strong>%d</strong> zbývajících pokusů."
 
-#: limit-login-attempts-ng.php:749
+#: limit-login-attempts-ng.php:762
 msgid "<strong>ERROR</strong>: Incorrect username or password."
 msgstr "<strong>CHYBA:</strong> Špatné uživatelské jméno nebo heslo."
 
-#: limit-login-attempts-ng.php:901
+#: limit-login-attempts-ng.php:904
+msgid "Settings"
+msgstr ""
+
+#: limit-login-attempts-ng.php:922
 msgctxt "Internet address"
 msgid "IP"
 msgstr ""
 
-#: limit-login-attempts-ng.php:901
+#: limit-login-attempts-ng.php:922
 msgid "Tried to log in as"
 msgstr "Pokus o přihlášení jako"
 
-#: limit-login-attempts-ng.php:906
+#: limit-login-attempts-ng.php:927
 msgid "%d lockout"
 msgid_plural "%d lockouts"
 msgstr[0] "%d uzamčení"
 msgstr[1] "%d uzamčení"
 msgstr[2] "%d uzamčení"
 
-#: limit-login-attempts-ng.php:935
+#: limit-login-attempts-ng.php:956
 msgid "Cleared IP log"
 msgstr "IP log smazán"
 
-#: limit-login-attempts-ng.php:943
+#: limit-login-attempts-ng.php:964
 msgid "Reset lockout count"
 msgstr "aktuální blokování bylo resetováno"
 
-#: limit-login-attempts-ng.php:951
+#: limit-login-attempts-ng.php:972
 msgid "Cleared current lockouts"
 msgstr "Aktuální blokování bylo promazáno"
 
-#: limit-login-attempts-ng.php:980
+#: limit-login-attempts-ng.php:1001
 msgid "Options changed"
 msgstr "Nastavení změněno"
 
-#: limit-login-attempts-ng.php:998
+#: limit-login-attempts-ng.php:1019
 msgid "It appears the site is reached directly (from your IP: %s)"
 msgstr "Zdá se, že web je přímo dosažitelný (z Vaší IP: %s)"
 
 #. Translators: 1: proxy IP 2: your IP
-#: limit-login-attempts-ng.php:1001
+#: limit-login-attempts-ng.php:1022
 #, fuzzy
 msgid ""
 "It appears the site is reached through a proxy server (proxy IP: %1$s, your "
@@ -168,7 +172,7 @@ msgid ""
 msgstr ""
 "Zdá se, že web je dosažitelný přes proxy server (IP proxy: %s, Vaše IP: %s)"
 
-#: limit-login-attempts-ng.php:1009
+#: limit-login-attempts-ng.php:1030
 msgid ""
 "<strong>Current setting appears to be invalid</strong>. Please make sure it "
 "is correct. Further information can be found <a href=\"%s\" "
@@ -178,123 +182,124 @@ msgstr ""
 "jeho správnosti. Další informace jsou k nalezení <a href=\"%s\" "
 "title=\"FAQ\">zde</a> (anglicky)."
 
-#: limit-login-attempts-ng.php:1018
+#: limit-login-attempts-ng.php:1039
 #, fuzzy
 msgid "Limit Login Attempts NG Settings"
 msgstr "Nastavení Limit Login Attempts"
 
-#: limit-login-attempts-ng.php:1019
+#: limit-login-attempts-ng.php:1040
 msgid "Statistics"
 msgstr "Statistiky"
 
-#: limit-login-attempts-ng.php:1026
+#: limit-login-attempts-ng.php:1047
 msgid "Total lockouts"
 msgstr "Celkem blokováno"
 
-#: limit-login-attempts-ng.php:1031
+#: limit-login-attempts-ng.php:1052
 msgid "Reset Counter"
 msgstr "Reset počítadla"
 
-#: limit-login-attempts-ng.php:1032
+#: limit-login-attempts-ng.php:1053
 msgid "%d lockout since last reset"
 msgid_plural "%d lockouts since last reset"
 msgstr[0] "%d blokování od posledního resetu"
 msgstr[1] "%d blokování od posledního resetu"
 msgstr[2] "%d blokování od posledního resetu"
 
-#: limit-login-attempts-ng.php:1036
+#: limit-login-attempts-ng.php:1057
 msgid "No lockouts yet"
 msgstr "Dosud nebylo nic blokováno"
 
-#: limit-login-attempts-ng.php:1046
+#: limit-login-attempts-ng.php:1067
 msgid "Active lockouts"
 msgstr "Aktivní blokování"
 
-#: limit-login-attempts-ng.php:1048
+#: limit-login-attempts-ng.php:1069
 msgid "Restore Lockouts"
 msgstr "Smazat blokování"
 
-#: limit-login-attempts-ng.php:1049
-msgid "%d IP is currently blocked from trying to log in"
+#: limit-login-attempts-ng.php:1070
+#, fuzzy
+msgid "%d IP currently blocked from trying to log in"
 msgstr "IP %d je aktuálně blokována z důvodu chybného přihlášení"
 
-#: limit-login-attempts-ng.php:1060
+#: limit-login-attempts-ng.php:1081
 msgid "Options"
 msgstr "Nastavení"
 
-#: limit-login-attempts-ng.php:1067
+#: limit-login-attempts-ng.php:1088
 msgid "Lockout"
 msgstr "Blokování"
 
-#: limit-login-attempts-ng.php:1069
+#: limit-login-attempts-ng.php:1090
 msgid "allowed retries"
 msgstr "povolených pokusů"
 
-#: limit-login-attempts-ng.php:1070
+#: limit-login-attempts-ng.php:1091
 msgid "minutes lockout"
 msgstr "minut blokován"
 
-#: limit-login-attempts-ng.php:1071
+#: limit-login-attempts-ng.php:1092
 msgid "lockouts increase lockout time to"
 msgstr "- počet blokovaných pokusů, po kterém se zvýší čas blokování na"
 
-#: limit-login-attempts-ng.php:1071
+#: limit-login-attempts-ng.php:1092
 msgid "hours"
 msgstr "hodin"
 
-#: limit-login-attempts-ng.php:1072
+#: limit-login-attempts-ng.php:1093
 msgid "hours until retries are reset"
 msgstr "- počet hodin, po kterém jsou chybné pokusy o přihlášení resetovány"
 
-#: limit-login-attempts-ng.php:1076
+#: limit-login-attempts-ng.php:1097
 msgid "Site connection"
 msgstr "Připojení webu"
 
-#: limit-login-attempts-ng.php:1081
+#: limit-login-attempts-ng.php:1102
 msgid "Direct connection"
 msgstr "Přímé připojení"
 
-#: limit-login-attempts-ng.php:1086
+#: limit-login-attempts-ng.php:1107
 msgid "From behind a reversy proxy"
 msgstr "Za proxy serverem"
 
-#: limit-login-attempts-ng.php:1092
+#: limit-login-attempts-ng.php:1113
 msgid "Handle cookie login"
 msgstr "Pracovat s přihlašovacím cookie"
 
-#: limit-login-attempts-ng.php:1096
+#: limit-login-attempts-ng.php:1117
 msgid "Yes"
 msgstr "Ano"
 
-#: limit-login-attempts-ng.php:1101
+#: limit-login-attempts-ng.php:1122
 msgid "No"
 msgstr "Ne"
 
-#: limit-login-attempts-ng.php:1106
+#: limit-login-attempts-ng.php:1127
 msgid "Notify on lockout"
 msgstr "Upozornění na blokování"
 
-#: limit-login-attempts-ng.php:1108
+#: limit-login-attempts-ng.php:1129
 msgid "Log IP"
 msgstr "Logovat IP"
 
-#: limit-login-attempts-ng.php:1109
+#: limit-login-attempts-ng.php:1130
 msgid "Email to admin after"
 msgstr "Poslat e-mail administrátorovi po"
 
-#: limit-login-attempts-ng.php:1109
+#: limit-login-attempts-ng.php:1130
 msgid "lockouts"
 msgstr "pokusech"
 
-#: limit-login-attempts-ng.php:1114
+#: limit-login-attempts-ng.php:1135
 msgid "Change Options"
 msgstr "Změnit nastavení"
 
-#: limit-login-attempts-ng.php:1124
+#: limit-login-attempts-ng.php:1145
 msgid "Lockout log"
 msgstr "Log blokování"
 
-#: limit-login-attempts-ng.php:1131
+#: limit-login-attempts-ng.php:1152
 msgid "Clear Log"
 msgstr "Smazat log"
 
