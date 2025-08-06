@@ -6,7 +6,7 @@
 	Author URI:   https://simonefioravanti.it
 	Text Domain:  limit-login-attempts
 	Domain Path:  /languages
-	Version:      0.0.4
+	Version:      0.0.5
 	Requires CP:  2.0
 	Requires PHP: 7.4
 
@@ -244,7 +244,7 @@ function limit_login_wp_authenticate_user($user, $password) {
 	global $limit_login_my_error_shown;
 	$limit_login_my_error_shown = true;
 
-	$error = new WP_Error();
+	$error = new \WP_Error();
 	// This error should be the same as in "shake it" filter below
 	$error->add('too_many_retries', limit_login_error_msg());
 	return $error;
