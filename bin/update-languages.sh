@@ -16,10 +16,12 @@ pushd languages >/dev/null
 
 for po in limit-login-attempts-*.po; do
 	mo=${po%.po}.mo
-	msgmerge --sort-output --update --backup=simple $po limit-login-attempts.pot
+
+	echo -n "Updating "
+	echo $po | sed -nE 's/.*-([a-z]{2}_?[A-Z]?[A-Z]?).po$/\1/p' | tr -d "\n"
+
+	msgmerge --backup=none --update $po limit-login-attempts.pot
 	msgfmt $po -o $mo
-	echo -n "Updated "
-	echo $po | sed -nE 's/.*-([a-z]{2}_?[A-Z]?[A-Z]?).po$/\1/p'
 done
 
 popd >/dev/null

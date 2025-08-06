@@ -6,265 +6,301 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: limit-login-attempts 1.2\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/limit-login-attempts\n"
-"POT-Creation-Date: 2012-05-20 10:43:32+00:00\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/limit-login-"
+"attempts-ng\n"
+"POT-Creation-Date: 2025-08-06T07:23:56+00:00\n"
 "PO-Revision-Date: 2012-05-20 12:51+0100\n"
 "Last-Translator: Johan Eenfeldt <johan.eenfeldt@kostdoktorn.se>\n"
 "Language-Team: Swedish\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: limit-login-attempts.php:522
+#. Plugin Name of the plugin
+#: limit-login-attempts-ng.php
+#, fuzzy
+msgid "Limit Login Attempts NG"
+msgstr "Limit Login Attempts"
+
+#. Description of the plugin
+#: limit-login-attempts-ng.php
+msgid "Limit rate of login attempts, including by way of cookies, for each IP."
+msgstr ""
+"Limit rate of login attempts, including by way of cookies, for each IP."
+
+#. Author of the plugin
+#: limit-login-attempts-ng.php
+msgid "Simone Fioravanti"
+msgstr ""
+
+#. Author URI of the plugin
+#: limit-login-attempts-ng.php
+msgid "https://simonefioravanti.it"
+msgstr ""
+
+#: limit-login-attempts-ng.php:52
+msgid "Limit Login Attempts NG requires ClassicPress version 2.0.0 or above."
+msgstr ""
+
+#: limit-login-attempts-ng.php:52
+msgid ""
+"Limit Login Attempts NG is a plugin meant to only work on ClassicPress sites."
+msgstr ""
+
+#: limit-login-attempts-ng.php:542
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] "%d timme"
 msgstr[1] "%d timmar"
 
-#: limit-login-attempts.php:528
+#: limit-login-attempts-ng.php:548
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d minut"
 msgstr[1] "%d minuter"
 
-#: limit-login-attempts.php:534
+#: limit-login-attempts-ng.php:554
 msgid "[%s] Failed login attempts from whitelisted IP"
 msgstr "[%s] För många misslyckade inloggningar från IP i vitlista"
 
-#: limit-login-attempts.php:538
+#: limit-login-attempts-ng.php:558
 msgid "[%s] Too many failed login attempts"
 msgstr "[%s] För många misslyckade inloggningar"
 
-#: limit-login-attempts.php:543
-msgid "%d failed login attempts (%d lockout(s)) from IP: %s"
+#. Translators: 1: number of failed login attempts 2: seconds of lockout 3: IP
+#: limit-login-attempts-ng.php:564
+#, fuzzy
+msgid "%1$d failed login attempts (%2$d lockout(s)) from IP: %3$s"
 msgstr "%d misslyckade inloggningar (blockad %d gång(er)) från IP: %s"
 
-#: limit-login-attempts.php:547
+#: limit-login-attempts-ng.php:568
 msgid "Last user attempted: %s"
 msgstr "Misslyckades senast med användare : %s"
 
-#: limit-login-attempts.php:551
+#: limit-login-attempts-ng.php:572
 msgid "IP was NOT blocked because of external whitelist."
 msgstr "IP blockerades INTE på grund av extern vitlista."
 
-#: limit-login-attempts.php:553
+#: limit-login-attempts-ng.php:574
 msgid "IP was blocked for %s"
 msgstr "IP blockerades i %s"
 
-#: limit-login-attempts.php:615
+#: limit-login-attempts-ng.php:636
 msgid "<strong>ERROR</strong>: Too many failed login attempts."
-msgstr "<strong>Fel</strong>: F&ouml;r m&aring;nga misslyckade f&ouml;rs&ouml;k."
+msgstr ""
+"<strong>Fel</strong>: F&ouml;r m&aring;nga misslyckade f&ouml;rs&ouml;k."
 
-#: limit-login-attempts.php:619
+#: limit-login-attempts-ng.php:640
 msgid "Please try again later."
 msgstr "F&ouml;rs&ouml;k igen senare."
 
-#: limit-login-attempts.php:626
+#: limit-login-attempts-ng.php:647
 msgid "Please try again in %d hour."
 msgid_plural "Please try again in %d hours."
 msgstr[0] "F&ouml;rs&ouml;k igen om %d timme."
 msgstr[1] "F&ouml;rs&ouml;k igen om %d timmar."
 
-#: limit-login-attempts.php:628
+#: limit-login-attempts-ng.php:649
 msgid "Please try again in %d minute."
 msgid_plural "Please try again in %d minutes."
 msgstr[0] "F&ouml;rs&ouml;k igen om %d minut."
 msgstr[1] "F&ouml;rs&ouml;k igen om %d minuter."
 
-#: limit-login-attempts.php:657
+#: limit-login-attempts-ng.php:678
 msgid "<strong>%d</strong> attempt remaining."
 msgid_plural "<strong>%d</strong> attempts remaining."
 msgstr[0] "<strong>%d</strong> f&ouml;rs&ouml;k &aring;terst&aring;r."
 msgstr[1] "<strong>%d</strong> f&ouml;rs&ouml;k &aring;terst&aring;r."
 
-#: limit-login-attempts.php:728
+#: limit-login-attempts-ng.php:749
 msgid "<strong>ERROR</strong>: Incorrect username or password."
 msgstr "<strong>Fel</strong>: Felaktigt anv&auml;ndarnamn eller l&ouml;senord."
 
-#: limit-login-attempts.php:896
+#: limit-login-attempts-ng.php:901
 msgctxt "Internet address"
 msgid "IP"
 msgstr "IP"
 
-#: limit-login-attempts.php:896
+#: limit-login-attempts-ng.php:901
 msgid "Tried to log in as"
 msgstr "F&ouml;rs&ouml;kte logga in som"
 
-#: limit-login-attempts.php:901
+#: limit-login-attempts-ng.php:906
 msgid "%d lockout"
 msgid_plural "%d lockouts"
 msgstr[0] "%d blockering"
 msgstr[1] "%d blockeringar"
 
-#: limit-login-attempts.php:930
+#: limit-login-attempts-ng.php:935
 msgid "Cleared IP log"
 msgstr "Rensade IP loggen"
 
-#: limit-login-attempts.php:938
+#: limit-login-attempts-ng.php:943
 msgid "Reset lockout count"
 msgstr "Nollst&auml;llde r&auml;knaren f&ouml;r blockeringar"
 
-#: limit-login-attempts.php:946
+#: limit-login-attempts-ng.php:951
 msgid "Cleared current lockouts"
 msgstr "Tog bort aktuella blockeringar"
 
-#: limit-login-attempts.php:975
+#: limit-login-attempts-ng.php:980
 msgid "Options changed"
 msgstr "Inst&auml;llningar &auml;ndrade"
 
-#: limit-login-attempts.php:993
+#: limit-login-attempts-ng.php:998
 msgid "It appears the site is reached directly (from your IP: %s)"
 msgstr "Sajten tycks vara direktansluten (från din IP: %s)"
 
-#: limit-login-attempts.php:995
-msgid "It appears the site is reached through a proxy server (proxy IP: %s, your IP: %s)"
+#. Translators: 1: proxy IP 2: your IP
+#: limit-login-attempts-ng.php:1001
+#, fuzzy
+msgid ""
+"It appears the site is reached through a proxy server (proxy IP: %1$s, your "
+"IP: %2$s)"
 msgstr "Sajten tycks ansluta genom en proxy server (proxy IP: %s, din IP: %s)"
 
-#: limit-login-attempts.php:1003
-msgid "<strong>Current setting appears to be invalid</strong>. Please make sure it is correct. Further information can be found <a href=\"%s\" title=\"FAQ\">here</a>"
-msgstr "<strong>Nuvarande inställningar kan vara fel</strong>. Säkerställ att de är korrekta. Mer information kan hittas <a href=\"%s\" title=\"FAQ\">här</a>"
+#: limit-login-attempts-ng.php:1009
+msgid ""
+"<strong>Current setting appears to be invalid</strong>. Please make sure it "
+"is correct. Further information can be found <a href=\"%s\" "
+"title=\"FAQ\">here</a>"
+msgstr ""
+"<strong>Nuvarande inställningar kan vara fel</strong>. Säkerställ att de är "
+"korrekta. Mer information kan hittas <a href=\"%s\" title=\"FAQ\">här</a>"
 
-#: limit-login-attempts.php:1011
-msgid "Limit Login Attempts Settings"
+#: limit-login-attempts-ng.php:1018
+#, fuzzy
+msgid "Limit Login Attempts NG Settings"
 msgstr "Limit Login Attempts Inst&auml;llningar"
 
-#: limit-login-attempts.php:1012
+#: limit-login-attempts-ng.php:1019
 msgid "Statistics"
 msgstr "Statistik"
 
-#: limit-login-attempts.php:1017
+#: limit-login-attempts-ng.php:1026
 msgid "Total lockouts"
 msgstr "Antal blockeringar"
 
-#: limit-login-attempts.php:1020
+#: limit-login-attempts-ng.php:1031
 msgid "Reset Counter"
 msgstr "Nollst&auml;ll r&auml;knare"
 
-#: limit-login-attempts.php:1021
+#: limit-login-attempts-ng.php:1032
 msgid "%d lockout since last reset"
 msgid_plural "%d lockouts since last reset"
 msgstr[0] "%d blockering sedan r&auml;knaren nollst&auml;lldes"
 msgstr[1] "%d blockeringar sedan r&auml;knaren nollst&auml;lldes"
 
-#: limit-login-attempts.php:1022
+#: limit-login-attempts-ng.php:1036
 msgid "No lockouts yet"
 msgstr "Inga blockeringar har skett &auml;nnu"
 
-#: limit-login-attempts.php:1027
+#: limit-login-attempts-ng.php:1046
 msgid "Active lockouts"
 msgstr "Aktiva blockeringar"
 
-#: limit-login-attempts.php:1029
+#: limit-login-attempts-ng.php:1048
 msgid "Restore Lockouts"
 msgstr "Ta bort blockeringar"
 
-#: limit-login-attempts.php:1030
+#: limit-login-attempts-ng.php:1049
 msgid "%d IP is currently blocked from trying to log in"
-msgstr "%d IP &auml;r f&ouml;r n&auml;rvarande blockerade fr&aring;n att logga in"
+msgstr ""
+"%d IP &auml;r f&ouml;r n&auml;rvarande blockerade fr&aring;n att logga in"
 
-#: limit-login-attempts.php:1036
+#: limit-login-attempts-ng.php:1060
 msgid "Options"
 msgstr "Inst&auml;llningar"
 
-#: limit-login-attempts.php:1041
+#: limit-login-attempts-ng.php:1067
 msgid "Lockout"
 msgstr "Blockering"
 
-#: limit-login-attempts.php:1043
+#: limit-login-attempts-ng.php:1069
 msgid "allowed retries"
 msgstr "till&aring;tna misslyckanden"
 
-#: limit-login-attempts.php:1044
+#: limit-login-attempts-ng.php:1070
 msgid "minutes lockout"
 msgstr "minuters blockering"
 
-#: limit-login-attempts.php:1045
+#: limit-login-attempts-ng.php:1071
 msgid "lockouts increase lockout time to"
 msgstr "blockeringar &ouml;kar tiden till"
 
-#: limit-login-attempts.php:1045
+#: limit-login-attempts-ng.php:1071
 msgid "hours"
 msgstr "timmar"
 
-#: limit-login-attempts.php:1046
+#: limit-login-attempts-ng.php:1072
 msgid "hours until retries are reset"
 msgstr "timmar tills misslyckanden nollst&auml;lls"
 
-#: limit-login-attempts.php:1050
+#: limit-login-attempts-ng.php:1076
 msgid "Site connection"
 msgstr "Sajten ansluter"
 
-#: limit-login-attempts.php:1056
+#: limit-login-attempts-ng.php:1081
 msgid "Direct connection"
 msgstr "Direktansluten"
 
-#: limit-login-attempts.php:1061
+#: limit-login-attempts-ng.php:1086
 msgid "From behind a reversy proxy"
 msgstr "Bakom en reverse proxy"
 
-#: limit-login-attempts.php:1067
+#: limit-login-attempts-ng.php:1092
 msgid "Handle cookie login"
 msgstr "Hantera inloggning med kakor"
 
-#: limit-login-attempts.php:1069
+#: limit-login-attempts-ng.php:1096
 msgid "Yes"
 msgstr "Ja"
 
-#: limit-login-attempts.php:1069
+#: limit-login-attempts-ng.php:1101
 msgid "No"
 msgstr "Nej"
 
-#: limit-login-attempts.php:1073
+#: limit-login-attempts-ng.php:1106
 msgid "Notify on lockout"
 msgstr "Notifiera om blockering"
 
-#: limit-login-attempts.php:1075
+#: limit-login-attempts-ng.php:1108
 msgid "Log IP"
 msgstr "Logga IP"
 
-#: limit-login-attempts.php:1076
+#: limit-login-attempts-ng.php:1109
 msgid "Email to admin after"
 msgstr "E-post till administrat&ouml;r efter"
 
-#: limit-login-attempts.php:1076
+#: limit-login-attempts-ng.php:1109
 msgid "lockouts"
 msgstr "blockeringar"
 
-#: limit-login-attempts.php:1081
+#: limit-login-attempts-ng.php:1114
 msgid "Change Options"
 msgstr "&Auml;ndra Inst&auml;llningar"
 
-#: limit-login-attempts.php:1089
+#: limit-login-attempts-ng.php:1124
 msgid "Lockout log"
 msgstr "Log &ouml;ver blockeringar"
 
-#: limit-login-attempts.php:1094
+#: limit-login-attempts-ng.php:1131
 msgid "Clear Log"
 msgstr "Rensa Log"
 
-#. Plugin Name of the plugin/theme
-msgid "Limit Login Attempts"
-msgstr "Limit Login Attempts"
-
-#. Plugin URI of the plugin/theme
-msgid "http://devel.kostdoktorn.se/limit-login-attempts"
-msgstr "http://devel.kostdoktorn.se/limit-login-attempts"
-
-#. Description of the plugin/theme
-msgid "Limit rate of login attempts, including by way of cookies, for each IP."
-msgstr "Limit rate of login attempts, including by way of cookies, for each IP."
-
-#. Author of the plugin/theme
-msgid "Johan Eenfeldt"
-msgstr "Johan Eenfeldt"
-
-#. Author URI of the plugin/theme
-msgid "http://devel.kostdoktorn.se"
-msgstr "http://devel.kostdoktorn.se"
-
-#~ msgid "IP|Internet address"
-#~ msgstr "IP"
 #~ msgid "<strong>NOTE:</strong> Only works in Wordpress 2.7 or later"
 #~ msgstr "<strong>OBS:</strong> Fungerar endast i WordPress 2.7 eller senare"
 
+#~ msgid "IP|Internet address"
+#~ msgstr "IP"
+
+#~ msgid "Johan Eenfeldt"
+#~ msgstr "Johan Eenfeldt"
+
+#~ msgid "http://devel.kostdoktorn.se"
+#~ msgstr "http://devel.kostdoktorn.se"
+
+#~ msgid "http://devel.kostdoktorn.se/limit-login-attempts"
+#~ msgstr "http://devel.kostdoktorn.se/limit-login-attempts"
