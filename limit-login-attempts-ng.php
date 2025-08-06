@@ -126,15 +126,8 @@ function limit_login_setup() {
 	if (limit_login_option('cookies')) {
 		limit_login_handle_cookies();
 		add_action('auth_cookie_bad_username', 'limit_login_failed_cookie');
-
-		global $wp_version;
-
-		if (version_compare($wp_version, '3.0', '>=')) {
-			add_action('auth_cookie_bad_hash', 'limit_login_failed_cookie_hash');
-			add_action('auth_cookie_valid', 'limit_login_valid_cookie', 10, 2);
-		} else {
-			add_action('auth_cookie_bad_hash', 'limit_login_failed_cookie');
-		}
+		add_action('auth_cookie_bad_hash', 'limit_login_failed_cookie_hash');
+		add_action('auth_cookie_valid', 'limit_login_valid_cookie', 10, 2);
 	}
 	add_filter('wp_authenticate_user', 'limit_login_wp_authenticate_user', 99999, 2);
 	add_filter('shake_error_codes', 'limit_login_failure_shake');
@@ -142,11 +135,6 @@ function limit_login_setup() {
 	add_action('login_errors', 'limit_login_fixup_error_messages');
 	add_action('admin_menu', 'limit_login_admin_menu');
 
-	/*
-	 * This action should really be changed to the 'authenticate' filter as
-	 * it will probably be deprecated. That is however only available in
-	 * later versions of WP.
-	 */
 	add_action('wp_authenticate', 'limit_login_track_credentials', 10, 2);
 }
 
@@ -217,6 +205,15 @@ function is_limit_login_ip_whitelisted($ip = null) {
 	if (is_null($ip)) {
 		$ip = limit_login_get_address();
 	}
+
+	/**
+	 * Filters whether an IP is in whitelist.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param bool     $whitelisted $ip is whitelisted (default false).
+	 * @param string   $ip IP address.
+	 */
 	$whitelisted = apply_filters('limit_login_whitelist_ip', false, $ip);
 
 	return ($whitelisted === true);
@@ -1007,7 +1004,7 @@ function limit_login_option_page()	{
 
 	$client_type_warning = '';
 	if ($client_type != $client_type_guess) {
-		$faq = 'https://github.com/xxsimoxx/limit-login-attempts/blob/main/README.md';
+		$faq = 'https://github.com/xxsimoxx/limit-login-attempts-ng/blob/main/README.md#faq';
 
 		$client_type_warning = '<br><br>' . sprintf(__('<strong>Current setting appears to be invalid</strong>. Please make sure it is correct. Further information can be found <a href="%s" title="FAQ">here</a>','limit-login-attempts'), $faq);
 	}
@@ -1015,7 +1012,7 @@ function limit_login_option_page()	{
 	$v = explode(',', limit_login_option('lockout_notify'));
 	$log_checked = in_array('log', $v) ? ' checked ' : '';
 	$email_checked = in_array('email', $v) ? ' checked ' : '';
-    ?> 
+    ?>
 
 	<div class="wrap">
 		<h2><?php esc_html_e('Limit Login Attempts NG Settings','limit-login-attempts'); ?></h2>
