@@ -36,8 +36,6 @@ Translations: Bulgarian, Brazilian Portuguese, Catalan, Chinese (Traditional), C
 
 This plugin is intended for use with [ClassicPress](https://www.classicpress.net/).
 
-[![ClassicPress Directory Coding Standard checks.](https://github.com/xxsimoxx/limit-login-attempts/actions/workflows/cpcs.yml/badge.svg)](https://github.com/xxsimoxx/limit-login-attempts/actions/workflows/cpcs.yml)
-
 ## <a name="faq"></a> Frequently Asked Questions
 
 *Why not reset failed attempts on a successful login?*
