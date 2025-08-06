@@ -49,9 +49,7 @@ function limit_login_deactivate_plugin_now() {
 
 function limit_login_error_is_wp() {
 	$class   = 'notice notice-error';
-	$message = function_exists('classicpress_version') ?
-		esc_html__( 'Limit Login Attempts NG requires ClassicPress version 2.0.0 or above.', 'limit-login-attempts') :
-		esc_html__( 'Limit Login Attempts NG is a plugin meant to only work on ClassicPress sites.', 'limit-login-attempts');
+	$message = function_exists('classicpress_version') ? esc_html__( 'Limit Login Attempts NG requires ClassicPress version 2.0.0 or above.', 'limit-login-attempts') : esc_html__( 'Limit Login Attempts NG is a plugin meant to only work on ClassicPress sites.', 'limit-login-attempts');
 	printf('<div class="%1$s"><p>%2$s</p></div>', esc_attr($class), esc_html($message));
 }
 
@@ -1017,10 +1015,10 @@ function limit_login_option_page()	{
 	$v = explode(',', limit_login_option('lockout_notify'));
 	$log_checked = in_array('log', $v) ? ' checked ' : '';
 	$email_checked = in_array('email', $v) ? ' checked ' : '';
-	?>
+    ?> 
 
 	<div class="wrap">
-		<h2><?php esc_html_e('Limit Login Attempts Settings','limit-login-attempts'); ?></h2>
+		<h2><?php esc_html_e('Limit Login Attempts NG Settings','limit-login-attempts'); ?></h2>
 		<h3><?php esc_html_e('Statistics','limit-login-attempts'); ?></h3>
 		<form action="options-general.php?page=limit-login-attempts" method="post">
 
@@ -1033,7 +1031,7 @@ function limit_login_option_page()	{
 						<?php if ($lockouts_total > 0) {
 							?>
 
-							<input name="reset_total" value="<?php esc_html_e('Reset Counter','limit-login-attempts'); ?>" type="submit">
+							<input name="reset_total" class="button button-danger" value="<?php esc_html_e('Reset Counter','limit-login-attempts'); ?>" type="submit">
 							<?php echo sprintf(_n('%d lockout since last reset', '%d lockouts since last reset', (int) $lockouts_total, 'limit-login-attempts'), (int) $lockouts_total); ?>
 
 							<?php
@@ -1072,9 +1070,9 @@ function limit_login_option_page()	{
 					<th scope="row" valign="top"><?php esc_html_e('Lockout','limit-login-attempts'); ?></th>
 					<td>
 						<input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('allowed_retries')); ?>" name="allowed_retries"> <?php esc_html_e('allowed retries','limit-login-attempts'); ?> <br>
-						<input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('lockout_duration')/60); ?>" name="lockout_duration"> <?php esc_html_e('minutes lockout','limit-login-attempts'); ?> <br>
-						<input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('allowed_lockouts')); ?>" name="allowed_lockouts"> <?php esc_html_e('lockouts increase lockout time to','limit-login-attempts'); ?> <input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('long_duration')/3600); ?>" name="long_duration"> <?php esc_html_e('hours','limit-login-attempts'); ?> <br>
-						<input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('valid_duration')/3600); ?>" name="valid_duration"> <?php esc_html_e('hours until retries are reset','limit-login-attempts'); ?>
+						<hr><input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('lockout_duration')/60); ?>" name="lockout_duration"> <?php esc_html_e('minutes lockout','limit-login-attempts'); ?> <br>
+						<hr><input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('allowed_lockouts')); ?>" name="allowed_lockouts"> <?php esc_html_e('lockouts increase lockout time to','limit-login-attempts'); ?> <input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('long_duration')/3600); ?>" name="long_duration"> <?php esc_html_e('hours','limit-login-attempts'); ?> <br>
+						<hr><input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('valid_duration')/3600); ?>" name="valid_duration"> <?php esc_html_e('hours until retries are reset','limit-login-attempts'); ?>
 					</td>
 				</tr>
 				<tr>
@@ -1133,24 +1131,16 @@ function limit_login_option_page()	{
 
 				<input type="hidden" value="true" name="clear_log">
 				<p class="submit">
-					<input name="submit" value="<?php esc_html_e('Clear Log','limit-login-attempts'); ?>" type="submit">
+					<input name="submit" class="button button-secondary" value="<?php esc_html_e('Clear Log','limit-login-attempts'); ?>" type="submit">
 				</p>
 			</form>
 
 			<style media="screen">
-			.limit-login-log th {
-				font-weight: bold;
-			}
-			.limit-login-log td, .limit-login-log th {
-				padding: 1px 5px 1px 5px;
-			}
-			td.limit-login-ip {
-				font-family:	"Courier New", Courier, monospace;
-				vertical-align: top;
-			}
-			td.limit-login-max {
-				width: 100%;
-			}
+			.limit-login-log th { font-weight: bold; }
+			.limit-login-log td, .limit-login-log th { padding: 1px 5px 1px 5px; }
+			td.limit-login-ip {	font-family:	"Courier New", Courier, monospace; vertical-align: top;	}
+			td.limit-login-max { width: 100%; }
+			.button.button-danger { background-color: indianred; color: white; margin-top: -5px; }
 			</style>
 
 			<div class="limit-login-log">
