@@ -72,38 +72,37 @@ define('LIMIT_LOGIN_LOCKOUT_NOTIFY_ALLOWED', 'log,email');
  * Assignments are for default value -- change on admin page.
  */
 
-$limit_login_options =
-	[
-		  /* Are we behind a proxy? */
-		  'client_type' => LIMIT_LOGIN_DIRECT_ADDR
+$limit_login_options = [
+		 /* Are we behind a proxy? */
+		'client_type' => LIMIT_LOGIN_DIRECT_ADDR,
 
-		  /* Lock out after this many tries */
-		  , 'allowed_retries' => 4
+		/* Lock out after this many tries */
+		'allowed_retries' => 4,
 
-		  /* Lock out for this many seconds */
-		  , 'lockout_duration' => 1200 // 20 minutes
+		/* Lock out for this many seconds */
+		'lockout_duration' => 1200, // 20 minutes
 
-		  /* Long lock out after this many lockouts */
-		  , 'allowed_lockouts' => 4
+		/* Long lock out after this many lockouts */
+		'allowed_lockouts' => 4,
 
-		  /* Long lock out for this many seconds */
-		  , 'long_duration' => 86400 // 24 hours
+		/* Long lock out for this many seconds */
+		'long_duration' => 86400, // 24 hours
 
-		  /* Reset failed attempts after this many seconds */
-		  , 'valid_duration' => 43200 // 12 hours
+		/* Reset failed attempts after this many seconds */
+		'valid_duration' => 43200, // 12 hours
 
-		  /* Also limit malformed/forged cookies? */
-		  , 'cookies' => true
+		/* Also limit malformed/forged cookies? */
+		'cookies' => true,
 
-		  /* Notify on lockout. Values: '', 'log', 'email', 'log,email' */
-		  , 'lockout_notify' => 'log'
+		/* Notify on lockout. Values: '', 'log', 'email', 'log,email' */
+		'lockout_notify' => 'log',
 
-		  /* If notify by email, do so after this number of lockouts */
-		  , 'notify_email_after' => 4,
-		  ];
+		/* If notify by email, do so after this number of lockouts */
+		'notify_email_after' => 4,
+];
 
-$limit_login_my_error_shown = false; /* have we shown our stuff? */
-$limit_login_just_lockedout = false; /* started this pageload??? */
+$limit_login_my_error_shown       = false; /* have we shown our stuff? */
+$limit_login_just_lockedout       = false; /* started this pageload??? */
 $limit_login_nonempty_credentials = false; /* user and pwd nonempty */
 
 
@@ -385,7 +384,7 @@ function limit_login_clear_auth_cookie() {
  * A note on external whitelist: retries and statistics are still counted and
  * notifications done as usual, but no lockout is done.
  */
-function limit_login_failed($username) {
+function limit_login_failed($username) { // phpcs:ignore Generic.Metrics.CyclomaticComplexity
 	$ip = limit_login_get_address();
 
 	/* if currently locked-out, do not add to retries */
@@ -393,7 +392,7 @@ function limit_login_failed($username) {
 	if (!is_array($lockouts)) {
 		$lockouts = [];
 	}
-	if(isset($lockouts[$ip]) && time() < $lockouts[$ip]) {
+	if (isset($lockouts[$ip]) && time() < $lockouts[$ip]) {
 		return;
 	}
 
@@ -418,7 +417,7 @@ function limit_login_failed($username) {
 	$valid[$ip] = time() + limit_login_option('valid_duration');
 
 	/* lockout? */
-	if($retries[$ip] % limit_login_option('allowed_retries') !== 0) {
+	if ($retries[$ip] % limit_login_option('allowed_retries') !== 0) {
 		/*
 		 * Not lockout (yet!)
 		 * Do housecleaning (which also saves retry/valid values).
@@ -476,7 +475,7 @@ function limit_login_failed($username) {
 
 
 /* Clean up old lockouts and retries, and save supplied arrays */
-function limit_login_cleanup($retries = null, $lockouts = null, $valid = null) {
+function limit_login_cleanup($retries = null, $lockouts = null, $valid = null) { // phpcs:ignore Generic.Metrics.CyclomaticComplexity
 	$now = time();
 	$lockouts = !is_null($lockouts) ? $lockouts : get_option('limit_login_lockouts');
 
@@ -548,17 +547,16 @@ function limit_login_notify_email($user) {
 	/* Format message. First current lockout duration */
 	if (!isset($retries[$ip])) {
 		/* longer lockout */
-		$count = limit_login_option('allowed_retries')
-			* limit_login_option('allowed_lockouts');
+		$count    = limit_login_option('allowed_retries') * limit_login_option('allowed_lockouts');
 		$lockouts = limit_login_option('allowed_lockouts');
-		$time = round(limit_login_option('long_duration') / 3600);
-		$when = sprintf(_n('%d hour', '%d hours', $time, 'limit-login-attempts'), $time);
+		$time     = round(limit_login_option('long_duration') / 3600);
+		$when     = sprintf(_n('%d hour', '%d hours', $time, 'limit-login-attempts'), $time);
 	} else {
 		/* normal lockout */
-		$count = $retries[$ip];
+		$count    = $retries[$ip];
 		$lockouts = floor($count / limit_login_option('allowed_retries'));
-		$time = round(limit_login_option('lockout_duration') / 60);
-		$when = sprintf(_n('%d minute', '%d minutes', $time, 'limit-login-attempts'), $time);
+		$time     = round(limit_login_option('lockout_duration') / 60);
+		$when     = sprintf(_n('%d minute', '%d minutes', $time, 'limit-login-attempts'), $time);
 	}
 
 	$blogname = is_limit_login_multisite() ? get_site_option('site_name') : get_option('blogname');
@@ -574,9 +572,7 @@ function limit_login_notify_email($user) {
 	}
 
 	// Translators: 1: number of failed login attempts 2: seconds of lockout 3: IP
-	$message = sprintf(esc_html__('%1$d failed login attempts (%2$d lockout(s)) from IP: %3$s',
-				   'limit-login-attempts'),
-				$count, $lockouts, $ip)."\r\n\r\n";
+	$message = sprintf(esc_html__('%1$d failed login attempts (%2$d lockout(s)) from IP: %3$s', 'limit-login-attempts'), $count, $lockouts, $ip)."\r\n\r\n";
 	if ($user !== '') {
 		$message .= sprintf(__('Last user attempted: %s', 'limit-login-attempts')."\r\n\r\n", $user);
 	}
@@ -944,7 +940,7 @@ function limit_login_show_log($log) {
 	foreach ($log as $ip => $arr) {
 		echo('<tr><td class="limit-login-ip">'.esc_html($ip).'</td><td class="limit-login-max">');
 		$first = true;
-		foreach($arr as $user => $count) {
+		foreach ($arr as $user => $count) {
 			$count_desc = sprintf(_n('%d lockout', '%d lockouts', $count, 'limit-login-attempts'), $count);
 			if (!$first) {
 				echo(', '.esc_html($user).' ('.esc_html($count_desc).')');
@@ -958,7 +954,7 @@ function limit_login_show_log($log) {
 }
 
 /* Actual admin page */
-function limit_login_option_page() {
+function limit_login_option_page() { // phpcs:ignore Generic.Metrics.CyclomaticComplexity
 	limit_login_cleanup();
 
 	if (!current_user_can('manage_options')) {
@@ -1016,15 +1012,15 @@ function limit_login_option_page() {
 	}
 
 	$lockouts_total = get_option('limit_login_lockouts_total', 0);
-	$lockouts = get_option('limit_login_lockouts');
-	$lockouts_now = is_array($lockouts) ? count($lockouts) : 0;
+	$lockouts       = get_option('limit_login_lockouts');
+	$lockouts_now   = is_array($lockouts) ? count($lockouts) : 0;
 
 	$cookies_yes = limit_login_option('cookies') ? ' checked ' : '';
-	$cookies_no = limit_login_option('cookies') ? '' : ' checked ';
+	$cookies_no  = limit_login_option('cookies') ? '' : ' checked ';
 
-	$client_type = limit_login_option('client_type');
+	$client_type        = limit_login_option('client_type');
 	$client_type_direct = $client_type === LIMIT_LOGIN_DIRECT_ADDR ? ' checked ' : '';
-	$client_type_proxy = $client_type === LIMIT_LOGIN_PROXY_ADDR ? ' checked ' : '';
+	$client_type_proxy  = $client_type === LIMIT_LOGIN_PROXY_ADDR ? ' checked ' : '';
 
 	$client_type_guess = limit_login_guess_proxy();
 
@@ -1060,17 +1056,17 @@ function limit_login_option_page() {
 					<th scope="row" valign="top"><?php esc_html_e('Total lockouts', 'limit-login-attempts'); ?></th>
 					<td>
 						<?php
-      if ($lockouts_total > 0) {
-							?>
+						if ($lockouts_total > 0) {
+						?>
 
 							<input name="reset_total" class="button button-danger" value="<?php esc_html_e('Reset Counter', 'limit-login-attempts'); ?>" type="submit">
 							<?php echo sprintf(_n('%d lockout since last reset', '%d lockouts since last reset', (int) $lockouts_total, 'limit-login-attempts'), (int) $lockouts_total); ?>
 
-	<?php
-			} else {
+				<?php
+						} else {
 							esc_html_e('No lockouts yet', 'limit-login-attempts');
-			   }
-						?>
+						}
+				?>
 
 					</td>
 				</tr>
