@@ -1149,7 +1149,7 @@ function limit_login_option_page()	{
 
 				<input type="hidden" value="true" name="clear_log">
 				<p class="submit">
-					<input name="submit" class="button button-danger" value="<?php esc_html_e('Clear Log','limit-login-attempts'); ?>" type="submit">
+					<input name="submit" class="button button-secondary" value="<?php esc_html_e('Clear Log','limit-login-attempts'); ?>" type="submit">
 				</p>
 			</form>
 
@@ -1162,16 +1162,22 @@ function limit_login_option_page()	{
 			<?php
 		} /* if showing $log */
 
-		if (($lockouts_total > 0) || ($lockouts_now > 0) || (is_array($log) && count($log) > 0)) {
+		if (($lockouts_total > 0) || ($lockouts_now > 0)) {
+			?>
+			<style media="screen">
+			.button.button-danger { background-color: indianred; color: white; margin-top: -5px; }
+			</style>
+			<?php
+		}
+		if (is_array($log) && count($log) > 0) {
 			?>
 			<style media="screen">
 			.limit-login-log th { font-weight: bold; }
 			.limit-login-log td, .limit-login-log th { padding: 1px 5px 1px 5px; }
 			td.limit-login-ip { font-family: "Courier New", Courier, monospace; vertical-align: top; }
 			td.limit-login-max { width: 100%; }
-			.button.button-danger { background-color: indianred; color: white; margin-top: -5px; }
 			</style>
-			<?php	
+			<?php
 		}
 		?>
 
