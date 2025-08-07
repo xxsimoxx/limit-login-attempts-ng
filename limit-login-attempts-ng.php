@@ -1167,7 +1167,7 @@ function limit_login_option_page()	{
 			<style media="screen">
 			.limit-login-log th { font-weight: bold; }
 			.limit-login-log td, .limit-login-log th { padding: 1px 5px 1px 5px; }
-			td.limit-login-ip {	font-family:	"Courier New", Courier, monospace; vertical-align: top;	}
+			td.limit-login-ip { font-family: "Courier New", Courier, monospace; vertical-align: top; }
 			td.limit-login-max { width: 100%; }
 			.button.button-danger { background-color: indianred; color: white; margin-top: -5px; }
 			</style>
