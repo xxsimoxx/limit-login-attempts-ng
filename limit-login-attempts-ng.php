@@ -6,7 +6,7 @@
 	Author URI:   https://simonefioravanti.it
 	Text Domain:  limit-login-attempts
 	Domain Path:  /languages
-	Version:      0.0.5
+	Version:      1.0.0
 	Requires CP:  2.0
 	Requires PHP: 7.4
 
