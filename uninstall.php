@@ -21,6 +21,6 @@ $limit_login_options = [
 	'limit_login_logged',
 ];
 
-foreach ($options as $option) {
+foreach ($limit_login_options as $option) {
 	delete_option($option);
 }
