@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: limit-login-attempts\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/limit-login-"
 "attempts-ng\n"
-"POT-Creation-Date: 2025-08-06T13:07:41+00:00\n"
+"POT-Creation-Date: 2025-08-07T14:57:57+00:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: mostafa.s1990@gmail.com <mostafa.s1990@gmail.com>\n"
 "Language-Team:  <mostafa.s1990@gmail.com>\n"
@@ -38,136 +38,136 @@ msgstr ""
 msgid "https://simonefioravanti.it"
 msgstr ""
 
-#: limit-login-attempts-ng.php:52
+#: limit-login-attempts-ng.php:54
 msgid "Limit Login Attempts NG requires ClassicPress version 2.0.0 or above."
 msgstr ""
 
-#: limit-login-attempts-ng.php:52
+#: limit-login-attempts-ng.php:54
 msgid ""
 "Limit Login Attempts NG is a plugin meant to only work on ClassicPress sites."
 msgstr ""
 
-#: limit-login-attempts-ng.php:542
+#: limit-login-attempts-ng.php:553
 #, fuzzy
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] "ساعت"
 msgstr[1] "ساعت"
 
-#: limit-login-attempts-ng.php:548
+#: limit-login-attempts-ng.php:559
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: limit-login-attempts-ng.php:554
+#: limit-login-attempts-ng.php:565
 #, fuzzy
 msgid "[%s] Failed login attempts from whitelisted IP"
 msgstr "[%s]  حملات زیاد برای ورود ناموفق"
 
-#: limit-login-attempts-ng.php:558
+#: limit-login-attempts-ng.php:569
 msgid "[%s] Too many failed login attempts"
 msgstr "[%s]  حملات زیاد برای ورود ناموفق"
 
 #. Translators: 1: number of failed login attempts 2: seconds of lockout 3: IP
-#: limit-login-attempts-ng.php:564
+#: limit-login-attempts-ng.php:575
 #, fuzzy
 msgid "%1$d failed login attempts (%2$d lockout(s)) from IP: %3$s"
 msgstr "%d حملات ورود ناموفق  (%d تحریم(s)) از آی پی: %s"
 
-#: limit-login-attempts-ng.php:568
+#: limit-login-attempts-ng.php:577
 msgid "Last user attempted: %s"
 msgstr "آخرین حملات کاربر: %s"
 
-#: limit-login-attempts-ng.php:572
+#: limit-login-attempts-ng.php:580
 msgid "IP was NOT blocked because of external whitelist."
 msgstr ""
 
-#: limit-login-attempts-ng.php:574
+#: limit-login-attempts-ng.php:582
 msgid "IP was blocked for %s"
 msgstr "آی پی شما برای %s قفل شده است"
 
-#: limit-login-attempts-ng.php:649
+#: limit-login-attempts-ng.php:657
 msgid "<strong>ERROR</strong>: Too many failed login attempts."
 msgstr "<strong>خطا</strong>: تلاش نا موفق برای ورود به سایت."
 
-#: limit-login-attempts-ng.php:653
+#: limit-login-attempts-ng.php:661
 msgid "Please try again later."
 msgstr "لطفا بعدا امتحان کنید."
 
-#: limit-login-attempts-ng.php:660
+#: limit-login-attempts-ng.php:667
 #, fuzzy
 msgid "Please try again in %d hour."
 msgid_plural "Please try again in %d hours."
 msgstr[0] "لطفا بعدا امتحان کنید."
 msgstr[1] "لطفا بعدا امتحان کنید."
 
-#: limit-login-attempts-ng.php:662
+#: limit-login-attempts-ng.php:669
 #, fuzzy
 msgid "Please try again in %d minute."
 msgid_plural "Please try again in %d minutes."
 msgstr[0] "لطفا بعدا امتحان کنید."
 msgstr[1] "لطفا بعدا امتحان کنید."
 
-#: limit-login-attempts-ng.php:691
+#: limit-login-attempts-ng.php:698
 msgid "<strong>%d</strong> attempt remaining."
 msgid_plural "<strong>%d</strong> attempts remaining."
 msgstr[0] ""
 msgstr[1] ""
 
-#: limit-login-attempts-ng.php:762
+#: limit-login-attempts-ng.php:769
 msgid "<strong>ERROR</strong>: Incorrect username or password."
 msgstr "<strong>خطا</strong>: نام کاربری یا رمز عبور اشتباه است."
 
-#: limit-login-attempts-ng.php:904
+#: limit-login-attempts-ng.php:921
 msgid "Settings"
 msgstr ""
 
-#: limit-login-attempts-ng.php:922
+#: limit-login-attempts-ng.php:939
 msgctxt "Internet address"
 msgid "IP"
 msgstr ""
 
-#: limit-login-attempts-ng.php:922
+#: limit-login-attempts-ng.php:939
 msgid "Tried to log in as"
 msgstr "برای ورود سعی کنید"
 
-#: limit-login-attempts-ng.php:927
+#: limit-login-attempts-ng.php:944
 #, fuzzy
 msgid "%d lockout"
 msgid_plural "%d lockouts"
 msgstr[0] "تحریم"
 msgstr[1] "تحریم"
 
-#: limit-login-attempts-ng.php:956
+#: limit-login-attempts-ng.php:972
 msgid "Cleared IP log"
 msgstr "گزارش آی پی ها پاک شده"
 
-#: limit-login-attempts-ng.php:964
+#: limit-login-attempts-ng.php:978
 msgid "Reset lockout count"
 msgstr "ریست کردن تعداد بن شدگان"
 
-#: limit-login-attempts-ng.php:972
+#: limit-login-attempts-ng.php:984
 msgid "Cleared current lockouts"
 msgstr "پاک کردن تعداد بن شدگان"
 
-#: limit-login-attempts-ng.php:1001
+#: limit-login-attempts-ng.php:1011
 msgid "Options changed"
 msgstr "تنظیمات ذخیره شد"
 
-#: limit-login-attempts-ng.php:1019
+#: limit-login-attempts-ng.php:1028
 msgid "It appears the site is reached directly (from your IP: %s)"
 msgstr "به نظر میرسد این سایت از یک پروکسی سرور رسیده است (از آی پی شما: %s)"
 
 #. Translators: 1: proxy IP 2: your IP
-#: limit-login-attempts-ng.php:1022
+#: limit-login-attempts-ng.php:1031
 #, fuzzy
 msgid ""
 "It appears the site is reached through a proxy server (proxy IP: %1$s, your "
 "IP: %2$s)"
 msgstr "به نظر میرسد این سایت از یک پروکسی سرور رسیده است (از آی پی شما: %s)"
 
-#: limit-login-attempts-ng.php:1030
+#: limit-login-attempts-ng.php:1039
 msgid ""
 "<strong>Current setting appears to be invalid</strong>. Please make sure it "
 "is correct. Further information can be found <a href=\"%s\" "
@@ -176,124 +176,124 @@ msgstr ""
 "<strong>تنظیمات فعلی معتبر نیست</strong>لطفا درستی را چک کنید. اطلاعات "
 "تکمیلی میتواند در بر داشته باشد در <a href=\"%s\" title=\"FAQ\">اینجا</a>"
 
-#: limit-login-attempts-ng.php:1039
+#: limit-login-attempts-ng.php:1048
 #, fuzzy
 msgid "Limit Login Attempts NG Settings"
 msgstr "تنظیمات محافظت از حملات ورودی"
 
-#: limit-login-attempts-ng.php:1040
+#: limit-login-attempts-ng.php:1049
 msgid "Statistics"
 msgstr "وضعیت"
 
-#: limit-login-attempts-ng.php:1047
+#: limit-login-attempts-ng.php:1056
 msgid "Total lockouts"
 msgstr "کل تحریم ها"
 
-#: limit-login-attempts-ng.php:1052
+#: limit-login-attempts-ng.php:1062
 msgid "Reset Counter"
 msgstr "ریست کردن شمارنده"
 
-#: limit-login-attempts-ng.php:1053
+#: limit-login-attempts-ng.php:1063
 #, fuzzy
 msgid "%d lockout since last reset"
 msgid_plural "%d lockouts since last reset"
 msgstr[0] "افزایش زمان تحریم برای بن شدگان"
 msgstr[1] "افزایش زمان تحریم برای بن شدگان"
 
-#: limit-login-attempts-ng.php:1057
+#: limit-login-attempts-ng.php:1067
 msgid "No lockouts yet"
 msgstr "هم اکنون کاربر تحریمی وجود ندارد"
 
-#: limit-login-attempts-ng.php:1067
+#: limit-login-attempts-ng.php:1079
 msgid "Active lockouts"
 msgstr "فعال کردن تحریم ها"
 
-#: limit-login-attempts-ng.php:1069
+#: limit-login-attempts-ng.php:1081
 msgid "Restore Lockouts"
 msgstr "بازگردانی تحریمی ها"
 
-#: limit-login-attempts-ng.php:1070
+#: limit-login-attempts-ng.php:1082
 #, fuzzy
 msgid "%d IP currently blocked from trying to log in"
 msgstr "در حال حاظر آی پی شما %d برای ورود به سایت مسدود شده است"
 
-#: limit-login-attempts-ng.php:1081
+#: limit-login-attempts-ng.php:1093
 msgid "Options"
 msgstr "تنظیمات"
 
-#: limit-login-attempts-ng.php:1088
+#: limit-login-attempts-ng.php:1100
 msgid "Lockout"
 msgstr "تحریم"
 
-#: limit-login-attempts-ng.php:1090
+#: limit-login-attempts-ng.php:1102
 msgid "allowed retries"
 msgstr "اجازه retries"
 
-#: limit-login-attempts-ng.php:1091
+#: limit-login-attempts-ng.php:1103
 msgid "minutes lockout"
 msgstr "دقیقه تحریم"
 
-#: limit-login-attempts-ng.php:1092
+#: limit-login-attempts-ng.php:1104
 msgid "lockouts increase lockout time to"
 msgstr "افزایش زمان تحریم برای بن شدگان"
 
-#: limit-login-attempts-ng.php:1092
+#: limit-login-attempts-ng.php:1104
 msgid "hours"
 msgstr "ساعت"
 
-#: limit-login-attempts-ng.php:1093
+#: limit-login-attempts-ng.php:1105
 msgid "hours until retries are reset"
 msgstr "ریست کردن ساعت بازنشانی ها"
 
-#: limit-login-attempts-ng.php:1097
+#: limit-login-attempts-ng.php:1109
 msgid "Site connection"
 msgstr "اتصال سایت"
 
-#: limit-login-attempts-ng.php:1102
+#: limit-login-attempts-ng.php:1114
 msgid "Direct connection"
 msgstr "هدایت اتصال"
 
-#: limit-login-attempts-ng.php:1107
+#: limit-login-attempts-ng.php:1119
 msgid "From behind a reversy proxy"
 msgstr "از قبل با پروکسی استفاده شده است"
 
-#: limit-login-attempts-ng.php:1113
+#: limit-login-attempts-ng.php:1125
 msgid "Handle cookie login"
 msgstr "به کار گرفتن کوکی ها برای ورود"
 
-#: limit-login-attempts-ng.php:1117
+#: limit-login-attempts-ng.php:1129
 msgid "Yes"
 msgstr "بله"
 
-#: limit-login-attempts-ng.php:1122
+#: limit-login-attempts-ng.php:1134
 msgid "No"
 msgstr "خیر"
 
-#: limit-login-attempts-ng.php:1127
+#: limit-login-attempts-ng.php:1139
 msgid "Notify on lockout"
 msgstr "آگاهی از تحریم"
 
-#: limit-login-attempts-ng.php:1129
+#: limit-login-attempts-ng.php:1141
 msgid "Log IP"
 msgstr "گزارش آی پی"
 
-#: limit-login-attempts-ng.php:1130
+#: limit-login-attempts-ng.php:1142
 msgid "Email to admin after"
 msgstr "رایانامه به مدیر"
 
-#: limit-login-attempts-ng.php:1130
+#: limit-login-attempts-ng.php:1142
 msgid "lockouts"
 msgstr "تحریم"
 
-#: limit-login-attempts-ng.php:1135
+#: limit-login-attempts-ng.php:1147
 msgid "Change Options"
 msgstr "ذخیره تغییرات"
 
-#: limit-login-attempts-ng.php:1145
+#: limit-login-attempts-ng.php:1157
 msgid "Lockout log"
 msgstr "گزارش تحریم"
 
-#: limit-login-attempts-ng.php:1152
+#: limit-login-attempts-ng.php:1164
 msgid "Clear Log"
 msgstr "پاک کردن گزارش"
 
