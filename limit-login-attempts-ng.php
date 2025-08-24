@@ -309,7 +309,7 @@ function limit_login_failed_cookie_hash($cookie_elements) {
 	}
 
 	$previous_cookie = get_user_meta($user->ID, 'limit_login_previous_cookie', true);
-	if ($previous_cookie && $previous_cookie === $cookie_elements) {
+	if ($previous_cookie && $previous_cookie == $cookie_elements) {
 		// Identical cookies, ignore this attempt
 		return;
 	}
