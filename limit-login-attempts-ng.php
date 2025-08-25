@@ -573,7 +573,7 @@ function limit_login_notify_email($user) {
 
 	// Translators: 1: number of failed login attempts 2: seconds of lockout 3: IP
 	$message = sprintf(esc_html__('%1$d failed login attempts (%2$d lockout(s)) from IP: %3$s', 'limit-login-attempts'), $count, $lockouts, $ip)."\r\n\r\n";
-	if ($user !== '') {
+	if ($user != '') {
 		$message .= sprintf(__('Last user attempted: %s', 'limit-login-attempts')."\r\n\r\n", $user);
 	}
 	if ($whitelisted) {
