@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: limit-login-attempts 1.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/limit-login-"
 "attempts-ng\n"
-"POT-Creation-Date: 2025-08-06T13:07:41+00:00\n"
+"POT-Creation-Date: 2025-08-07T14:57:57+00:00\n"
 "PO-Revision-Date: 2009-03-05 00:16+0200\n"
 "Last-Translator: Robert Tudor <egipt@egt-design.com>\n"
 "Language-Team: German <michael@skerwiderski.de>\n"
@@ -42,125 +42,125 @@ msgstr ""
 msgid "https://simonefioravanti.it"
 msgstr ""
 
-#: limit-login-attempts-ng.php:52
+#: limit-login-attempts-ng.php:54
 msgid "Limit Login Attempts NG requires ClassicPress version 2.0.0 or above."
 msgstr ""
 
-#: limit-login-attempts-ng.php:52
+#: limit-login-attempts-ng.php:54
 msgid ""
 "Limit Login Attempts NG is a plugin meant to only work on ClassicPress sites."
 msgstr ""
 
-#: limit-login-attempts-ng.php:542
+#: limit-login-attempts-ng.php:553
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] "%d ora"
 msgstr[1] "%d ore"
 
-#: limit-login-attempts-ng.php:548
+#: limit-login-attempts-ng.php:559
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d Minut"
 msgstr[1] "%d Minute"
 
-#: limit-login-attempts-ng.php:554
+#: limit-login-attempts-ng.php:565
 #, fuzzy
 msgid "[%s] Failed login attempts from whitelisted IP"
 msgstr "[%s] Prea multe incercari nereusite"
 
-#: limit-login-attempts-ng.php:558
+#: limit-login-attempts-ng.php:569
 msgid "[%s] Too many failed login attempts"
 msgstr "[%s] Prea multe incercari nereusite"
 
 #. Translators: 1: number of failed login attempts 2: seconds of lockout 3: IP
-#: limit-login-attempts-ng.php:564
+#: limit-login-attempts-ng.php:575
 #, fuzzy
 msgid "%1$d failed login attempts (%2$d lockout(s)) from IP: %3$s"
 msgstr "%d incercari de logare nereusite (%d inchidere(i)) de la IP: %s"
 
-#: limit-login-attempts-ng.php:568
+#: limit-login-attempts-ng.php:577
 msgid "Last user attempted: %s"
 msgstr "Ultimul incercare: %s"
 
-#: limit-login-attempts-ng.php:572
+#: limit-login-attempts-ng.php:580
 msgid "IP was NOT blocked because of external whitelist."
 msgstr ""
 
-#: limit-login-attempts-ng.php:574
+#: limit-login-attempts-ng.php:582
 msgid "IP was blocked for %s"
 msgstr "IP-ul a fost blocat pentru %s."
 
-#: limit-login-attempts-ng.php:649
+#: limit-login-attempts-ng.php:657
 msgid "<strong>ERROR</strong>: Too many failed login attempts."
 msgstr "<strong>EROARE</strong>: Prea multe incercari nereusite."
 
-#: limit-login-attempts-ng.php:653
+#: limit-login-attempts-ng.php:661
 msgid "Please try again later."
 msgstr "Va rugam incercati mai tarziu."
 
-#: limit-login-attempts-ng.php:660
+#: limit-login-attempts-ng.php:667
 msgid "Please try again in %d hour."
 msgid_plural "Please try again in %d hours."
 msgstr[0] "Va rugam incercati in %d ora."
 msgstr[1] "Va rugam incercati in %d ore"
 
-#: limit-login-attempts-ng.php:662
+#: limit-login-attempts-ng.php:669
 msgid "Please try again in %d minute."
 msgid_plural "Please try again in %d minutes."
 msgstr[0] "Va rugam incercati in %d Minut."
 msgstr[1] "Va rugam incercati in %d Minute."
 
-#: limit-login-attempts-ng.php:691
+#: limit-login-attempts-ng.php:698
 msgid "<strong>%d</strong> attempt remaining."
 msgid_plural "<strong>%d</strong> attempts remaining."
 msgstr[0] "incercare ramasa <strong>%d</strong>"
 msgstr[1] "incercari ramasa <strong>%d</strong>"
 
-#: limit-login-attempts-ng.php:762
+#: limit-login-attempts-ng.php:769
 msgid "<strong>ERROR</strong>: Incorrect username or password."
 msgstr "<strong>EROARE</strong>: Nume de utilizator sau parola incorecta."
 
-#: limit-login-attempts-ng.php:904
+#: limit-login-attempts-ng.php:921
 msgid "Settings"
 msgstr ""
 
-#: limit-login-attempts-ng.php:922
+#: limit-login-attempts-ng.php:939
 msgctxt "Internet address"
 msgid "IP"
 msgstr ""
 
-#: limit-login-attempts-ng.php:922
+#: limit-login-attempts-ng.php:939
 msgid "Tried to log in as"
 msgstr "A incercat sa se logheze ca"
 
-#: limit-login-attempts-ng.php:927
+#: limit-login-attempts-ng.php:944
 msgid "%d lockout"
 msgid_plural "%d lockouts"
 msgstr[0] "%d inchidere"
 msgstr[1] "%d inchideri"
 
-#: limit-login-attempts-ng.php:956
+#: limit-login-attempts-ng.php:972
 msgid "Cleared IP log"
 msgstr "Am curatat logul cu IP"
 
-#: limit-login-attempts-ng.php:964
+#: limit-login-attempts-ng.php:978
 msgid "Reset lockout count"
 msgstr "Reseteaza numaratoarea inchiderilor"
 
-#: limit-login-attempts-ng.php:972
+#: limit-login-attempts-ng.php:984
 msgid "Cleared current lockouts"
 msgstr "Am curatat numaratoarea inchiderilor"
 
-#: limit-login-attempts-ng.php:1001
+#: limit-login-attempts-ng.php:1011
 msgid "Options changed"
 msgstr "Optiuni schimbate"
 
-#: limit-login-attempts-ng.php:1019
+#: limit-login-attempts-ng.php:1028
 msgid "It appears the site is reached directly (from your IP: %s)"
 msgstr "Se pare ca site-ul este accesat direct (de la IP-ul dvs: %s)"
 
 #. Translators: 1: proxy IP 2: your IP
-#: limit-login-attempts-ng.php:1022
+#: limit-login-attempts-ng.php:1031
 #, fuzzy
 msgid ""
 "It appears the site is reached through a proxy server (proxy IP: %1$s, your "
@@ -169,7 +169,7 @@ msgstr ""
 "Se pare ca site-ul este accesat printr-un adresa PROXY (IP Proxy: %s, IP "
 "dvs.: %s)"
 
-#: limit-login-attempts-ng.php:1030
+#: limit-login-attempts-ng.php:1039
 msgid ""
 "<strong>Current setting appears to be invalid</strong>. Please make sure it "
 "is correct. Further information can be found <a href=\"%s\" "
@@ -179,123 +179,123 @@ msgstr ""
 "corectitudinea lor. Mai multe informatii pot fi gasite <a href=\"%s\" "
 "title=\"FAQ\">aici</a>"
 
-#: limit-login-attempts-ng.php:1039
+#: limit-login-attempts-ng.php:1048
 #, fuzzy
 msgid "Limit Login Attempts NG Settings"
 msgstr "Setari Limitari Incercari Access"
 
-#: limit-login-attempts-ng.php:1040
+#: limit-login-attempts-ng.php:1049
 msgid "Statistics"
 msgstr "Statistici"
 
-#: limit-login-attempts-ng.php:1047
+#: limit-login-attempts-ng.php:1056
 msgid "Total lockouts"
 msgstr "Total inchideri"
 
-#: limit-login-attempts-ng.php:1052
+#: limit-login-attempts-ng.php:1062
 msgid "Reset Counter"
 msgstr "Reseteaza numaratoarea"
 
-#: limit-login-attempts-ng.php:1053
+#: limit-login-attempts-ng.php:1063
 msgid "%d lockout since last reset"
 msgid_plural "%d lockouts since last reset"
 msgstr[0] "%d inchidere de la ultima resetare"
 msgstr[1] "%d inchideri de la ultima resetare"
 
-#: limit-login-attempts-ng.php:1057
+#: limit-login-attempts-ng.php:1067
 msgid "No lockouts yet"
 msgstr "Nici o inchidere pana acum"
 
-#: limit-login-attempts-ng.php:1067
+#: limit-login-attempts-ng.php:1079
 msgid "Active lockouts"
 msgstr "Inchideri active"
 
-#: limit-login-attempts-ng.php:1069
+#: limit-login-attempts-ng.php:1081
 msgid "Restore Lockouts"
 msgstr "Restaureaza inchideri"
 
-#: limit-login-attempts-ng.php:1070
+#: limit-login-attempts-ng.php:1082
 #, fuzzy
 msgid "%d IP currently blocked from trying to log in"
 msgstr "IP-ul %d are momentan accesul de intrare blocat."
 
-#: limit-login-attempts-ng.php:1081
+#: limit-login-attempts-ng.php:1093
 msgid "Options"
 msgstr "Optiuni"
 
-#: limit-login-attempts-ng.php:1088
+#: limit-login-attempts-ng.php:1100
 msgid "Lockout"
 msgstr "Inchidere"
 
-#: limit-login-attempts-ng.php:1090
+#: limit-login-attempts-ng.php:1102
 msgid "allowed retries"
 msgstr "incercari permise"
 
-#: limit-login-attempts-ng.php:1091
+#: limit-login-attempts-ng.php:1103
 msgid "minutes lockout"
 msgstr "inchidere in minute"
 
-#: limit-login-attempts-ng.php:1092
+#: limit-login-attempts-ng.php:1104
 msgid "lockouts increase lockout time to"
 msgstr "inchiderile maresc timpul in"
 
-#: limit-login-attempts-ng.php:1092
+#: limit-login-attempts-ng.php:1104
 msgid "hours"
 msgstr "ore"
 
-#: limit-login-attempts-ng.php:1093
+#: limit-login-attempts-ng.php:1105
 msgid "hours until retries are reset"
 msgstr "ore pana cand incercarile sunt resetate"
 
-#: limit-login-attempts-ng.php:1097
+#: limit-login-attempts-ng.php:1109
 msgid "Site connection"
 msgstr "Conexie site"
 
-#: limit-login-attempts-ng.php:1102
+#: limit-login-attempts-ng.php:1114
 msgid "Direct connection"
 msgstr "Conexie directa"
 
-#: limit-login-attempts-ng.php:1107
+#: limit-login-attempts-ng.php:1119
 msgid "From behind a reversy proxy"
 msgstr "In spatele unui proxy"
 
-#: limit-login-attempts-ng.php:1113
+#: limit-login-attempts-ng.php:1125
 msgid "Handle cookie login"
 msgstr "Logare tip cookie"
 
-#: limit-login-attempts-ng.php:1117
+#: limit-login-attempts-ng.php:1129
 msgid "Yes"
 msgstr "Da"
 
-#: limit-login-attempts-ng.php:1122
+#: limit-login-attempts-ng.php:1134
 msgid "No"
 msgstr "Nu"
 
-#: limit-login-attempts-ng.php:1127
+#: limit-login-attempts-ng.php:1139
 msgid "Notify on lockout"
 msgstr "Notifica-ma de inchidere"
 
-#: limit-login-attempts-ng.php:1129
+#: limit-login-attempts-ng.php:1141
 msgid "Log IP"
 msgstr "Logheaza IP"
 
-#: limit-login-attempts-ng.php:1130
+#: limit-login-attempts-ng.php:1142
 msgid "Email to admin after"
 msgstr "Notifica adminul dupa"
 
-#: limit-login-attempts-ng.php:1130
+#: limit-login-attempts-ng.php:1142
 msgid "lockouts"
 msgstr "inchideri"
 
-#: limit-login-attempts-ng.php:1135
+#: limit-login-attempts-ng.php:1147
 msgid "Change Options"
 msgstr "Schimba optiunile"
 
-#: limit-login-attempts-ng.php:1145
+#: limit-login-attempts-ng.php:1157
 msgid "Lockout log"
 msgstr "Log de inchidere"
 
-#: limit-login-attempts-ng.php:1152
+#: limit-login-attempts-ng.php:1164
 msgid "Clear Log"
 msgstr "Sterge log"
 

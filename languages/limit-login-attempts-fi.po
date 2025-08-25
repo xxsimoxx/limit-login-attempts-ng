@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: wp-limit-login-attempts-plugin\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/limit-login-"
 "attempts-ng\n"
-"POT-Creation-Date: 2025-08-06T13:07:41+00:00\n"
+"POT-Creation-Date: 2025-08-07T14:57:57+00:00\n"
 "PO-Revision-Date: 2010-08-12 04:22-0400\n"
 "Last-Translator: AriK <ari.kontiainen@gmail.com>\n"
 "Language-Team: Finnish\n"
@@ -36,126 +36,126 @@ msgstr ""
 msgid "https://simonefioravanti.it"
 msgstr ""
 
-#: limit-login-attempts-ng.php:52
+#: limit-login-attempts-ng.php:54
 msgid "Limit Login Attempts NG requires ClassicPress version 2.0.0 or above."
 msgstr ""
 
-#: limit-login-attempts-ng.php:52
+#: limit-login-attempts-ng.php:54
 msgid ""
 "Limit Login Attempts NG is a plugin meant to only work on ClassicPress sites."
 msgstr ""
 
-#: limit-login-attempts-ng.php:542
+#: limit-login-attempts-ng.php:553
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] "%d tunti"
 msgstr[1] "%d tuntia"
 
-#: limit-login-attempts-ng.php:548
+#: limit-login-attempts-ng.php:559
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d minuutti(a)"
 msgstr[1] "%d minuutti(a)"
 
-#: limit-login-attempts-ng.php:554
+#: limit-login-attempts-ng.php:565
 #, fuzzy
 msgid "[%s] Failed login attempts from whitelisted IP"
 msgstr "[%s] Liikaa epäonnistuneita kirjautumisyrityksiä"
 
-#: limit-login-attempts-ng.php:558
+#: limit-login-attempts-ng.php:569
 msgid "[%s] Too many failed login attempts"
 msgstr "[%s] Liikaa epäonnistuneita kirjautumisyrityksiä"
 
 #. Translators: 1: number of failed login attempts 2: seconds of lockout 3: IP
-#: limit-login-attempts-ng.php:564
+#: limit-login-attempts-ng.php:575
 #, fuzzy
 msgid "%1$d failed login attempts (%2$d lockout(s)) from IP: %3$s"
 msgstr "%d epäonnistunutta kirjautumisyritystä (%d lukitus(ta)) IP:stä %s"
 
-#: limit-login-attempts-ng.php:568
+#: limit-login-attempts-ng.php:577
 msgid "Last user attempted: %s"
 msgstr "Viimeisin käyttäjä yritti: %s"
 
-#: limit-login-attempts-ng.php:572
+#: limit-login-attempts-ng.php:580
 msgid "IP was NOT blocked because of external whitelist."
 msgstr ""
 
-#: limit-login-attempts-ng.php:574
+#: limit-login-attempts-ng.php:582
 msgid "IP was blocked for %s"
 msgstr "IP estettiin: %s"
 
-#: limit-login-attempts-ng.php:649
+#: limit-login-attempts-ng.php:657
 msgid "<strong>ERROR</strong>: Too many failed login attempts."
 msgstr ""
 "<strong>VIRHE:</strong> Liian monta epäonnistunutta kirjautumisyritystä."
 
-#: limit-login-attempts-ng.php:653
+#: limit-login-attempts-ng.php:661
 msgid "Please try again later."
 msgstr "Yritä myöhemmin uudelleen."
 
-#: limit-login-attempts-ng.php:660
+#: limit-login-attempts-ng.php:667
 msgid "Please try again in %d hour."
 msgid_plural "Please try again in %d hours."
 msgstr[0] "Yritä uudelleen %d tunnin kuluttua."
 msgstr[1] "Yritä uudelleen %d tunnin kuluttua."
 
-#: limit-login-attempts-ng.php:662
+#: limit-login-attempts-ng.php:669
 msgid "Please try again in %d minute."
 msgid_plural "Please try again in %d minutes."
 msgstr[0] "Yritä uudelleen %d minuutin kuluttua."
 msgstr[1] "Yritä uudelleen %d minuutin kuluttua."
 
-#: limit-login-attempts-ng.php:691
+#: limit-login-attempts-ng.php:698
 msgid "<strong>%d</strong> attempt remaining."
 msgid_plural "<strong>%d</strong> attempts remaining."
 msgstr[0] "<strong>%d</strong> yritys jäljellä."
 msgstr[1] "<strong>%d</strong> yritystä jäljellä."
 
-#: limit-login-attempts-ng.php:762
+#: limit-login-attempts-ng.php:769
 msgid "<strong>ERROR</strong>: Incorrect username or password."
 msgstr "<strong>VIRHE:</strong> Virheellinen käyttäjätunnus tai salasana."
 
-#: limit-login-attempts-ng.php:904
+#: limit-login-attempts-ng.php:921
 msgid "Settings"
 msgstr ""
 
-#: limit-login-attempts-ng.php:922
+#: limit-login-attempts-ng.php:939
 msgctxt "Internet address"
 msgid "IP"
 msgstr ""
 
-#: limit-login-attempts-ng.php:922
+#: limit-login-attempts-ng.php:939
 msgid "Tried to log in as"
 msgstr "Yritti kirjautua tunnuksella"
 
-#: limit-login-attempts-ng.php:927
+#: limit-login-attempts-ng.php:944
 msgid "%d lockout"
 msgid_plural "%d lockouts"
 msgstr[0] "%d lukitus"
 msgstr[1] "%d lukitusta"
 
-#: limit-login-attempts-ng.php:956
+#: limit-login-attempts-ng.php:972
 msgid "Cleared IP log"
 msgstr "IP loki tyhjennetty"
 
-#: limit-login-attempts-ng.php:964
+#: limit-login-attempts-ng.php:978
 msgid "Reset lockout count"
 msgstr "Nollaa lukitusten laskuri"
 
-#: limit-login-attempts-ng.php:972
+#: limit-login-attempts-ng.php:984
 msgid "Cleared current lockouts"
 msgstr "Lukitusten laskuri nollattu"
 
-#: limit-login-attempts-ng.php:1001
+#: limit-login-attempts-ng.php:1011
 msgid "Options changed"
 msgstr "Asetuksia muutettu"
 
-#: limit-login-attempts-ng.php:1019
+#: limit-login-attempts-ng.php:1028
 msgid "It appears the site is reached directly (from your IP: %s)"
 msgstr "Sivustolle näytään tulevan suoraan (IP-osoitteesta: %s)"
 
 #. Translators: 1: proxy IP 2: your IP
-#: limit-login-attempts-ng.php:1022
+#: limit-login-attempts-ng.php:1031
 #, fuzzy
 msgid ""
 "It appears the site is reached through a proxy server (proxy IP: %1$s, your "
@@ -164,7 +164,7 @@ msgstr ""
 "Sivustolle näytään tulevan välityspalvelimen kautta (proxy IP: %s, koneen "
 "IP: %s)"
 
-#: limit-login-attempts-ng.php:1030
+#: limit-login-attempts-ng.php:1039
 msgid ""
 "<strong>Current setting appears to be invalid</strong>. Please make sure it "
 "is correct. Further information can be found <a href=\"%s\" "
@@ -173,123 +173,123 @@ msgstr ""
 "<strong>Nykyinen asetus saattaa olla virheellinen.</strong> Varmista "
 "oikeellisuus. Lisätietoja löytyy <a href=\"%s\" title=\"UKK\">tästä</a>"
 
-#: limit-login-attempts-ng.php:1039
+#: limit-login-attempts-ng.php:1048
 #, fuzzy
 msgid "Limit Login Attempts NG Settings"
 msgstr "Limit Login Attempts asetukset"
 
-#: limit-login-attempts-ng.php:1040
+#: limit-login-attempts-ng.php:1049
 msgid "Statistics"
 msgstr "Tilastotietoa"
 
-#: limit-login-attempts-ng.php:1047
+#: limit-login-attempts-ng.php:1056
 msgid "Total lockouts"
 msgstr "Lukituksia yhteensä"
 
-#: limit-login-attempts-ng.php:1052
+#: limit-login-attempts-ng.php:1062
 msgid "Reset Counter"
 msgstr "Nollaa laskuri"
 
-#: limit-login-attempts-ng.php:1053
+#: limit-login-attempts-ng.php:1063
 msgid "%d lockout since last reset"
 msgid_plural "%d lockouts since last reset"
 msgstr[0] "%d lukitus edellisen nollauksen jälkeen"
 msgstr[1] "%d lukitusta edellisen nollauksen jälkeen"
 
-#: limit-login-attempts-ng.php:1057
+#: limit-login-attempts-ng.php:1067
 msgid "No lockouts yet"
 msgstr "Ei lukituksia"
 
-#: limit-login-attempts-ng.php:1067
+#: limit-login-attempts-ng.php:1079
 msgid "Active lockouts"
 msgstr "Aktiiviset lukitukset"
 
-#: limit-login-attempts-ng.php:1069
+#: limit-login-attempts-ng.php:1081
 msgid "Restore Lockouts"
 msgstr "Palauta lukitukset"
 
-#: limit-login-attempts-ng.php:1070
+#: limit-login-attempts-ng.php:1082
 #, fuzzy
 msgid "%d IP currently blocked from trying to log in"
 msgstr "IP-osoitteesta %d on tällä hetkellä estetty kirjautuminen"
 
-#: limit-login-attempts-ng.php:1081
+#: limit-login-attempts-ng.php:1093
 msgid "Options"
 msgstr "Asetukset"
 
-#: limit-login-attempts-ng.php:1088
+#: limit-login-attempts-ng.php:1100
 msgid "Lockout"
 msgstr "Lukitus"
 
-#: limit-login-attempts-ng.php:1090
+#: limit-login-attempts-ng.php:1102
 msgid "allowed retries"
 msgstr "uudelleenyritystä sallitaan"
 
-#: limit-login-attempts-ng.php:1091
+#: limit-login-attempts-ng.php:1103
 msgid "minutes lockout"
 msgstr "minuutin lukitus"
 
-#: limit-login-attempts-ng.php:1092
+#: limit-login-attempts-ng.php:1104
 msgid "lockouts increase lockout time to"
 msgstr "lukitusta lisää lukitusaikaa"
 
-#: limit-login-attempts-ng.php:1092
+#: limit-login-attempts-ng.php:1104
 msgid "hours"
 msgstr "tuntiin"
 
-#: limit-login-attempts-ng.php:1093
+#: limit-login-attempts-ng.php:1105
 msgid "hours until retries are reset"
 msgstr "tuntia, kunnes uudelleenyritykset nollataan"
 
-#: limit-login-attempts-ng.php:1097
+#: limit-login-attempts-ng.php:1109
 msgid "Site connection"
 msgstr "Sivuston yhteys"
 
-#: limit-login-attempts-ng.php:1102
+#: limit-login-attempts-ng.php:1114
 msgid "Direct connection"
 msgstr "Suora yhteys"
 
-#: limit-login-attempts-ng.php:1107
+#: limit-login-attempts-ng.php:1119
 msgid "From behind a reversy proxy"
 msgstr "Käänteisen välityspalvelimen (proxy) takana"
 
-#: limit-login-attempts-ng.php:1113
+#: limit-login-attempts-ng.php:1125
 msgid "Handle cookie login"
 msgstr "Käsittele evästesisäänkirjautuminen"
 
-#: limit-login-attempts-ng.php:1117
+#: limit-login-attempts-ng.php:1129
 msgid "Yes"
 msgstr "Kyllä"
 
-#: limit-login-attempts-ng.php:1122
+#: limit-login-attempts-ng.php:1134
 msgid "No"
 msgstr "Ei"
 
-#: limit-login-attempts-ng.php:1127
+#: limit-login-attempts-ng.php:1139
 msgid "Notify on lockout"
 msgstr "Ilmoita lukituksesta"
 
-#: limit-login-attempts-ng.php:1129
+#: limit-login-attempts-ng.php:1141
 msgid "Log IP"
 msgstr "Kirjaa IP"
 
-#: limit-login-attempts-ng.php:1130
+#: limit-login-attempts-ng.php:1142
 msgid "Email to admin after"
 msgstr "Lähetä sähköposti ylläpitäjälle"
 
-#: limit-login-attempts-ng.php:1130
+#: limit-login-attempts-ng.php:1142
 msgid "lockouts"
 msgstr "lukituksen jälkeen"
 
-#: limit-login-attempts-ng.php:1135
+#: limit-login-attempts-ng.php:1147
 msgid "Change Options"
 msgstr "Muuta asetuksia"
 
-#: limit-login-attempts-ng.php:1145
+#: limit-login-attempts-ng.php:1157
 msgid "Lockout log"
 msgstr "Lukitusloki"
 
-#: limit-login-attempts-ng.php:1152
+#: limit-login-attempts-ng.php:1164
 msgid "Clear Log"
 msgstr "Tyhjennä loki"
 
