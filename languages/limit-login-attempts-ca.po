@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: limit-login-attempts 1.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/limit-login-"
 "attempts-ng\n"
-"POT-Creation-Date: 2025-08-06T13:07:41+00:00\n"
+"POT-Creation-Date: 2025-08-07T14:57:57+00:00\n"
 "PO-Revision-Date: 2009-03-16 21:05+0100\n"
 "Last-Translator: Robert Buj <rbuj@wanadoo.es>\n"
 "Language-Team: Catalan <rbuj@wanadoo.es>\n"
@@ -42,126 +42,126 @@ msgstr ""
 msgid "https://simonefioravanti.it"
 msgstr ""
 
-#: limit-login-attempts-ng.php:52
+#: limit-login-attempts-ng.php:54
 msgid "Limit Login Attempts NG requires ClassicPress version 2.0.0 or above."
 msgstr ""
 
-#: limit-login-attempts-ng.php:52
+#: limit-login-attempts-ng.php:54
 msgid ""
 "Limit Login Attempts NG is a plugin meant to only work on ClassicPress sites."
 msgstr ""
 
-#: limit-login-attempts-ng.php:542
+#: limit-login-attempts-ng.php:553
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] "%d hora"
 msgstr[1] "%d hores"
 
-#: limit-login-attempts-ng.php:548
+#: limit-login-attempts-ng.php:559
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d minut"
 msgstr[1] "%d minuts"
 
-#: limit-login-attempts-ng.php:554
+#: limit-login-attempts-ng.php:565
 #, fuzzy
 msgid "[%s] Failed login attempts from whitelisted IP"
 msgstr "[%s] Massa intents d'accés fallits"
 
-#: limit-login-attempts-ng.php:558
+#: limit-login-attempts-ng.php:569
 msgid "[%s] Too many failed login attempts"
 msgstr "[%s] Massa intents d'accés fallits"
 
 #. Translators: 1: number of failed login attempts 2: seconds of lockout 3: IP
-#: limit-login-attempts-ng.php:564
+#: limit-login-attempts-ng.php:575
 #, fuzzy
 msgid "%1$d failed login attempts (%2$d lockout(s)) from IP: %3$s"
 msgstr "%d intents d'accedir fallits (%d bloqueig(s)) de de l'IP: %s"
 
-#: limit-login-attempts-ng.php:568
+#: limit-login-attempts-ng.php:577
 msgid "Last user attempted: %s"
 msgstr "Últim intent d'usuari: %s"
 
-#: limit-login-attempts-ng.php:572
+#: limit-login-attempts-ng.php:580
 msgid "IP was NOT blocked because of external whitelist."
 msgstr ""
 
-#: limit-login-attempts-ng.php:574
+#: limit-login-attempts-ng.php:582
 msgid "IP was blocked for %s"
 msgstr "La IP ha estat bloquejada per %s"
 
-#: limit-login-attempts-ng.php:649
+#: limit-login-attempts-ng.php:657
 msgid "<strong>ERROR</strong>: Too many failed login attempts."
 msgstr "<strong>ERROR</strong>: Massa intents d'accedir fallits."
 
-#: limit-login-attempts-ng.php:653
+#: limit-login-attempts-ng.php:661
 msgid "Please try again later."
 msgstr "Si us plau torneu-ho a intentar més tard."
 
-#: limit-login-attempts-ng.php:660
+#: limit-login-attempts-ng.php:667
 msgid "Please try again in %d hour."
 msgid_plural "Please try again in %d hours."
 msgstr[0] "Si us plau torneu-ho a provar d'aquí a %d hora."
 msgstr[1] "Si us plau torneu-ho a provar d'aquí a %d hores."
 
-#: limit-login-attempts-ng.php:662
+#: limit-login-attempts-ng.php:669
 msgid "Please try again in %d minute."
 msgid_plural "Please try again in %d minutes."
 msgstr[0] "Si us plau torneu-ho a provar d'aquí a %d minut."
 msgstr[1] "Si us plau torneu-ho a provar d'aquí a %d minuts."
 
-#: limit-login-attempts-ng.php:691
+#: limit-login-attempts-ng.php:698
 msgid "<strong>%d</strong> attempt remaining."
 msgid_plural "<strong>%d</strong> attempts remaining."
 msgstr[0] "<strong>%d</strong> intent restant."
 msgstr[1] "<strong>%d</strong> intents restants."
 
-#: limit-login-attempts-ng.php:762
+#: limit-login-attempts-ng.php:769
 msgid "<strong>ERROR</strong>: Incorrect username or password."
 msgstr "<strong>ERROR</strong>: Nom d'usuari o contrasenya incorrectes."
 
-#: limit-login-attempts-ng.php:904
+#: limit-login-attempts-ng.php:921
 msgid "Settings"
 msgstr ""
 
-#: limit-login-attempts-ng.php:922
+#: limit-login-attempts-ng.php:939
 msgctxt "Internet address"
 msgid "IP"
 msgstr ""
 
-#: limit-login-attempts-ng.php:922
+#: limit-login-attempts-ng.php:939
 msgid "Tried to log in as"
 msgstr "Heu tractat d'accedir com"
 
-#: limit-login-attempts-ng.php:927
+#: limit-login-attempts-ng.php:944
 msgid "%d lockout"
 msgid_plural "%d lockouts"
 msgstr[0] "%d bloqueig"
 msgstr[1] "%d bloqueigs"
 
-#: limit-login-attempts-ng.php:956
+#: limit-login-attempts-ng.php:972
 msgid "Cleared IP log"
 msgstr "Netejat el registre IP"
 
-#: limit-login-attempts-ng.php:964
+#: limit-login-attempts-ng.php:978
 msgid "Reset lockout count"
 msgstr "Restablir contador de bloqueig"
 
-#: limit-login-attempts-ng.php:972
+#: limit-login-attempts-ng.php:984
 msgid "Cleared current lockouts"
 msgstr "Netejats els bloqueigs actuals"
 
-#: limit-login-attempts-ng.php:1001
+#: limit-login-attempts-ng.php:1011
 msgid "Options changed"
 msgstr "Opcions canviades"
 
-#: limit-login-attempts-ng.php:1019
+#: limit-login-attempts-ng.php:1028
 msgid "It appears the site is reached directly (from your IP: %s)"
 msgstr ""
 "Pel que sembla, al lloc s'arriba directament (a partir de la vostra IP: %s)"
 
 #. Translators: 1: proxy IP 2: your IP
-#: limit-login-attempts-ng.php:1022
+#: limit-login-attempts-ng.php:1031
 #, fuzzy
 msgid ""
 "It appears the site is reached through a proxy server (proxy IP: %1$s, your "
@@ -170,7 +170,7 @@ msgstr ""
 "Pel que sembla, al lloc s'arriba a través d'un servidor intermediari (proxy "
 "IP: %s, la vostra IP: %s)"
 
-#: limit-login-attempts-ng.php:1030
+#: limit-login-attempts-ng.php:1039
 msgid ""
 "<strong>Current setting appears to be invalid</strong>. Please make sure it "
 "is correct. Further information can be found <a href=\"%s\" "
@@ -180,123 +180,123 @@ msgstr ""
 "assegureu-vos que és correcta. Podeu trobar més informació <a href=\"%s\" "
 "title=\"FAQ\">aquí</a>"
 
-#: limit-login-attempts-ng.php:1039
+#: limit-login-attempts-ng.php:1048
 #, fuzzy
 msgid "Limit Login Attempts NG Settings"
 msgstr "Preferències del límit d'intents d'identificació"
 
-#: limit-login-attempts-ng.php:1040
+#: limit-login-attempts-ng.php:1049
 msgid "Statistics"
 msgstr "Estadístiques"
 
-#: limit-login-attempts-ng.php:1047
+#: limit-login-attempts-ng.php:1056
 msgid "Total lockouts"
 msgstr "Bloqueigs totals"
 
-#: limit-login-attempts-ng.php:1052
+#: limit-login-attempts-ng.php:1062
 msgid "Reset Counter"
 msgstr "Restablir contador"
 
-#: limit-login-attempts-ng.php:1053
+#: limit-login-attempts-ng.php:1063
 msgid "%d lockout since last reset"
 msgid_plural "%d lockouts since last reset"
 msgstr[0] "%d bloqueig des de l'ultim restabliment."
 msgstr[1] "%d bloqueigs des de l'ultim restabliment."
 
-#: limit-login-attempts-ng.php:1057
+#: limit-login-attempts-ng.php:1067
 msgid "No lockouts yet"
 msgstr "Encara sense bloqueigs"
 
-#: limit-login-attempts-ng.php:1067
+#: limit-login-attempts-ng.php:1079
 msgid "Active lockouts"
 msgstr "Bloqueigs actius"
 
-#: limit-login-attempts-ng.php:1069
+#: limit-login-attempts-ng.php:1081
 msgid "Restore Lockouts"
 msgstr "Restablir bloqueigs"
 
-#: limit-login-attempts-ng.php:1070
+#: limit-login-attempts-ng.php:1082
 #, fuzzy
 msgid "%d IP currently blocked from trying to log in"
 msgstr "La IP %d actualment està bloquejada al tractar d'iniciar la sessió"
 
-#: limit-login-attempts-ng.php:1081
+#: limit-login-attempts-ng.php:1093
 msgid "Options"
 msgstr "Opcions"
 
-#: limit-login-attempts-ng.php:1088
+#: limit-login-attempts-ng.php:1100
 msgid "Lockout"
 msgstr "Bloqueig"
 
-#: limit-login-attempts-ng.php:1090
+#: limit-login-attempts-ng.php:1102
 msgid "allowed retries"
 msgstr "reintents permesos"
 
-#: limit-login-attempts-ng.php:1091
+#: limit-login-attempts-ng.php:1103
 msgid "minutes lockout"
 msgstr "minuts a bloquejar"
 
-#: limit-login-attempts-ng.php:1092
+#: limit-login-attempts-ng.php:1104
 msgid "lockouts increase lockout time to"
 msgstr "bloqueigs incrementen el temps a"
 
-#: limit-login-attempts-ng.php:1092
+#: limit-login-attempts-ng.php:1104
 msgid "hours"
 msgstr "hores"
 
-#: limit-login-attempts-ng.php:1093
+#: limit-login-attempts-ng.php:1105
 msgid "hours until retries are reset"
 msgstr "hores fins que es restableixen els reintents"
 
-#: limit-login-attempts-ng.php:1097
+#: limit-login-attempts-ng.php:1109
 msgid "Site connection"
 msgstr "Lloc de connexió"
 
-#: limit-login-attempts-ng.php:1102
+#: limit-login-attempts-ng.php:1114
 msgid "Direct connection"
 msgstr "Connexió directa"
 
-#: limit-login-attempts-ng.php:1107
+#: limit-login-attempts-ng.php:1119
 msgid "From behind a reversy proxy"
 msgstr "Des de darrere d'un proxy reversy"
 
-#: limit-login-attempts-ng.php:1113
+#: limit-login-attempts-ng.php:1125
 msgid "Handle cookie login"
 msgstr "Manejar galletes d'identificació"
 
-#: limit-login-attempts-ng.php:1117
+#: limit-login-attempts-ng.php:1129
 msgid "Yes"
 msgstr "Si"
 
-#: limit-login-attempts-ng.php:1122
+#: limit-login-attempts-ng.php:1134
 msgid "No"
 msgstr "No"
 
-#: limit-login-attempts-ng.php:1127
+#: limit-login-attempts-ng.php:1139
 msgid "Notify on lockout"
 msgstr "Notificar al bloquejar"
 
-#: limit-login-attempts-ng.php:1129
+#: limit-login-attempts-ng.php:1141
 msgid "Log IP"
 msgstr "Registre IP"
 
-#: limit-login-attempts-ng.php:1130
+#: limit-login-attempts-ng.php:1142
 msgid "Email to admin after"
 msgstr "Enviar després un correu a l'administrador"
 
-#: limit-login-attempts-ng.php:1130
+#: limit-login-attempts-ng.php:1142
 msgid "lockouts"
 msgstr "Bloqueigs"
 
-#: limit-login-attempts-ng.php:1135
+#: limit-login-attempts-ng.php:1147
 msgid "Change Options"
 msgstr "Canviar opcions"
 
-#: limit-login-attempts-ng.php:1145
+#: limit-login-attempts-ng.php:1157
 msgid "Lockout log"
 msgstr "Registre de bloqueigs"
 
-#: limit-login-attempts-ng.php:1152
+#: limit-login-attempts-ng.php:1164
 msgid "Clear Log"
 msgstr "Netejar registre"
 
