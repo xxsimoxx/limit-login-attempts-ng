@@ -1099,10 +1099,10 @@ function limit_login_option_page() { // phpcs:ignore Generic.Metrics.CyclomaticC
 				<tr>
 					<th scope="row" valign="top"><?php esc_html_e('Lockout', 'limit-login-attempts'); ?></th>
 					<td>
-						<input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('allowed_retries')); ?>" name="allowed_retries"> <?php esc_html_e('allowed retries', 'limit-login-attempts'); ?> <br>
-						<hr><input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('lockout_duration') / 60); ?>" name="lockout_duration"> <?php esc_html_e('minutes lockout', 'limit-login-attempts'); ?> <br>
-						<hr><input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('allowed_lockouts')); ?>" name="allowed_lockouts"> <?php esc_html_e('lockouts increase lockout time to', 'limit-login-attempts'); ?> <input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('long_duration') / 3600); ?>" name="long_duration"> <?php esc_html_e('hours', 'limit-login-attempts'); ?> <br>
-						<hr><input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('valid_duration') / 3600); ?>" name="valid_duration"> <?php esc_html_e('hours until retries are reset', 'limit-login-attempts'); ?>
+						<input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('allowed_retries')); ?>" name="allowed_retries"> <?php esc_html_e('allowed retries', 'limit-login-attempts'); ?><br><br>
+						<input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('lockout_duration') / 60); ?>" name="lockout_duration"> <?php esc_html_e('minutes lockout', 'limit-login-attempts'); ?><br><br>
+						<input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('allowed_lockouts')); ?>" name="allowed_lockouts"> <?php esc_html_e('lockouts increase lockout time to', 'limit-login-attempts'); ?> <input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('long_duration') / 3600); ?>" name="long_duration"> <?php esc_html_e('hours', 'limit-login-attempts'); ?><br><br>
+						<input type="text" size="3" maxlength="4" value="<?php echo esc_html(limit_login_option('valid_duration') / 3600); ?>" name="valid_duration"> <?php esc_html_e('hours until retries are reset', 'limit-login-attempts'); ?>
 					</td>
 				</tr>
 				<tr>
@@ -1177,7 +1177,7 @@ function limit_login_option_page() { // phpcs:ignore Generic.Metrics.CyclomaticC
 		if (($lockouts_total > 0) || ($lockouts_now > 0)) {
 			?>
 			<style media="screen">
-			.button.button-danger { background-color: indianred; color: white; margin-top: -5px; }
+			.button.button-danger { background-color: indianred; color: white; border-color: indianred; margin-top: -5px; }
 			</style>
 			<?php
 		}
